@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5FE913482822A76E00C0CDE0 /* SwiftUIQuizzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE913472822A76E00C0CDE0 /* SwiftUIQuizzApp.swift */; };
-		5FE9134A2822A76E00C0CDE0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE913492822A76E00C0CDE0 /* ContentView.swift */; };
+		5FE9134A2822A76E00C0CDE0 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE913492822A76E00C0CDE0 /* QuestionView.swift */; };
 		5FE9134C2822A77000C0CDE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE9134B2822A77000C0CDE0 /* Assets.xcassets */; };
 		5FE9134F2822A77000C0CDE0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE9134E2822A77000C0CDE0 /* Preview Assets.xcassets */; };
 		5FE913592822B96F00C0CDE0 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE913582822B96F00C0CDE0 /* Views.swift */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		5FE913442822A76E00C0CDE0 /* SwiftUIQuizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIQuizz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE913472822A76E00C0CDE0 /* SwiftUIQuizzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIQuizzApp.swift; sourceTree = "<group>"; };
-		5FE913492822A76E00C0CDE0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5FE913492822A76E00C0CDE0 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		5FE9134B2822A77000C0CDE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FE9134E2822A77000C0CDE0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5FE913582822B96F00C0CDE0 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		5FE913562822B91E00C0CDE0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5FE913492822A76E00C0CDE0 /* ContentView.swift */,
+				5FE913492822A76E00C0CDE0 /* QuestionView.swift */,
 				5FE913582822B96F00C0CDE0 /* Views.swift */,
 			);
 			path = Views;
@@ -169,7 +169,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FE9134A2822A76E00C0CDE0 /* ContentView.swift in Sources */,
+				5F3AC737282408250041CBBC /* Manager.Question.swift in Sources */,
+				5FE9134A2822A76E00C0CDE0 /* QuestionView.swift in Sources */,
 				5FE913482822A76E00C0CDE0 /* SwiftUIQuizzApp.swift in Sources */,
 				5FE913592822B96F00C0CDE0 /* Views.swift in Sources */,
 			);
