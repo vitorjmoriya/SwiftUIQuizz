@@ -16,7 +16,7 @@ extension Manager {
             case decodingError
         }
 
-        private let urlString = "https://opentdb.com/api.php?amount=10"
+        private let urlString = "https://opentdb.com/api.php?amount=10&type=multiple"
 
         // MARK: Using Async/Await
         func fetchQuestions() async throws -> [Question] {
