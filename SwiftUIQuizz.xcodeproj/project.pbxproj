@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F3AC735282408030041CBBC /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC734282408030041CBBC /* Manager.swift */; };
+		5F3AC737282408250041CBBC /* Manager.Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC736282408250041CBBC /* Manager.Question.swift */; };
 		5FE913482822A76E00C0CDE0 /* SwiftUIQuizzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE913472822A76E00C0CDE0 /* SwiftUIQuizzApp.swift */; };
 		5FE9134A2822A76E00C0CDE0 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE913492822A76E00C0CDE0 /* QuestionView.swift */; };
 		5FE9134C2822A77000C0CDE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE9134B2822A77000C0CDE0 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F3AC734282408030041CBBC /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		5F3AC736282408250041CBBC /* Manager.Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.Question.swift; sourceTree = "<group>"; };
 		5FE913442822A76E00C0CDE0 /* SwiftUIQuizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIQuizz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE913472822A76E00C0CDE0 /* SwiftUIQuizzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIQuizzApp.swift; sourceTree = "<group>"; };
 		5FE913492822A76E00C0CDE0 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
@@ -34,6 +38,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F3AC733282407F40041CBBC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5F3AC734282408030041CBBC /* Manager.swift */,
+				5F3AC736282408250041CBBC /* Manager.Question.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		5FE9133B2822A76E00C0CDE0 = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +66,7 @@
 		5FE913462822A76E00C0CDE0 /* SwiftUIQuizz */ = {
 			isa = PBXGroup;
 			children = (
+				5F3AC733282407F40041CBBC /* Manager */,
 				5FE913562822B91E00C0CDE0 /* Views */,
 				5FE913472822A76E00C0CDE0 /* SwiftUIQuizzApp.swift */,
 				5FE9134B2822A77000C0CDE0 /* Assets.xcassets */,
@@ -173,6 +187,7 @@
 				5FE9134A2822A76E00C0CDE0 /* QuestionView.swift in Sources */,
 				5FE913482822A76E00C0CDE0 /* SwiftUIQuizzApp.swift in Sources */,
 				5FE913592822B96F00C0CDE0 /* Views.swift in Sources */,
+				5F3AC735282408030041CBBC /* Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
