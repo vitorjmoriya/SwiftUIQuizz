@@ -43,6 +43,8 @@ extension Views {
                         viewModel.title = "404"
                     case .decodingError:
                         viewModel.title = "QUEBRARAM API"
+                    case .invalidCategory:
+                        viewModel.title = "Categoria Inválida"
                     }
                 }
             }
