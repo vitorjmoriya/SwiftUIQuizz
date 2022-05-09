@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3DFD23EE28295C180074AB54 /* Manager.SaveSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */; };
 		18DF400E282A8402006B7254 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF400D282A8402006B7254 /* ButtonView.swift */; };
 		18E7B091282AA1690027706C /* correct.json in Resources */ = {isa = PBXBuildFile; fileRef = 18E7B08F282AA1690027706C /* correct.json */; };
 		18E7B092282AA1690027706C /* wrong.json in Resources */ = {isa = PBXBuildFile; fileRef = 18E7B090282AA1690027706C /* wrong.json */; };
+		3DFD23EE28295C180074AB54 /* Manager.SaveSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */; };
 		5F3A266A282BDF2C00E857CC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A2669282BDF2C00E857CC /* ProfileView.swift */; };
 		5F3AC735282408030041CBBC /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC734282408030041CBBC /* Manager.swift */; };
 		5F3AC737282408250041CBBC /* Manager.API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC736282408250041CBBC /* Manager.API.swift */; };
@@ -28,10 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.SaveSystem.swift; sourceTree = "<group>"; };
 		18DF400D282A8402006B7254 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		18E7B08F282AA1690027706C /* correct.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = correct.json; sourceTree = "<group>"; };
 		18E7B090282AA1690027706C /* wrong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wrong.json; sourceTree = "<group>"; };
+		230993A42833CA9600D6B5E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.SaveSystem.swift; sourceTree = "<group>"; };
 		5F3A2669282BDF2C00E857CC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5F3AC734282408030041CBBC /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		5F3AC736282408250041CBBC /* Manager.API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.API.swift; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				5FFA8585282A8803008F47A5 /* Extension */,
+				230993A42833CA9600D6B5E1 /* Info.plist */,
 				5FDC436E2829378600A4F011 /* Lottie */,
 				5F3AC733282407F40041CBBC /* Manager */,
 				5FE913562822B91E00C0CDE0 /* Views */,
@@ -378,11 +380,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Manual;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIQuizz/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIQuizz/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -398,7 +403,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -408,11 +413,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Manual;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIQuizz/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIQuizz/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,7 +436,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
