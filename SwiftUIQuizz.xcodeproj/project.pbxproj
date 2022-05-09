@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5F3AC735282408030041CBBC /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC734282408030041CBBC /* Manager.swift */; };
 		5F3AC737282408250041CBBC /* Manager.Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC736282408250041CBBC /* Manager.Question.swift */; };
+		5FDC436B282936FF00A4F011 /* LottieSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5FDC436A282936FF00A4F011 /* LottieSwiftUI */; };
 		5FE913482822A76E00C0CDE0 /* SwiftUIQuizzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE913472822A76E00C0CDE0 /* SwiftUIQuizzApp.swift */; };
 		5FE9134A2822A76E00C0CDE0 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE913492822A76E00C0CDE0 /* QuestionView.swift */; };
 		5FE9134C2822A77000C0CDE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE9134B2822A77000C0CDE0 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FDC436B282936FF00A4F011 /* LottieSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +111,9 @@
 			dependencies = (
 			);
 			name = SwiftUIQuizz;
+			packageProductDependencies = (
+				5FDC436A282936FF00A4F011 /* LottieSwiftUI */,
+			);
 			productName = SwiftUIQuizz;
 			productReference = 5FE913442822A76E00C0CDE0 /* SwiftUIQuizz.app */;
 			productType = "com.apple.product-type.application";
@@ -137,6 +142,9 @@
 				Base,
 			);
 			mainGroup = 5FE9133B2822A76E00C0CDE0;
+			packageReferences = (
+				5FDC4369282936FF00A4F011 /* XCRemoteSwiftPackageReference "Lottie-SwiftUI" */,
+			);
 			productRefGroup = 5FE913452822A76E00C0CDE0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -386,6 +394,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5FDC4369282936FF00A4F011 /* XCRemoteSwiftPackageReference "Lottie-SwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LukasHromadnik/Lottie-SwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5FDC436A282936FF00A4F011 /* LottieSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FDC4369282936FF00A4F011 /* XCRemoteSwiftPackageReference "Lottie-SwiftUI" */;
+			productName = LottieSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5FE9133C2822A76E00C0CDE0 /* Project object */;
 }
