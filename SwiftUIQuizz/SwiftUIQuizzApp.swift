@@ -11,7 +11,6 @@ import SwiftUI
 struct SwiftUIQuizzApp: App {
     var body: some Scene {
         WindowGroup {
-//            Views.QuestionView(viewModel: .init())
             Views.LaunchView()
         }
     }
