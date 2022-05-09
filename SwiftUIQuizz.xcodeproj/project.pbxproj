@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5F3AC735282408030041CBBC /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC734282408030041CBBC /* Manager.swift */; };
 		5F3AC737282408250041CBBC /* Manager.Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC736282408250041CBBC /* Manager.Question.swift */; };
+		5FDC436B282936FF00A4F011 /* LottieSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5FDC436A282936FF00A4F011 /* LottieSwiftUI */; };
+		5FDC436D2829371100A4F011 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDC436C2829371100A4F011 /* LaunchView.swift */; };
+		5FDC4370282937FD00A4F011 /* wave.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FDC436F282937FD00A4F011 /* wave.json */; };
 		5FE913482822A76E00C0CDE0 /* SwiftUIQuizzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE913472822A76E00C0CDE0 /* SwiftUIQuizzApp.swift */; };
 		5FE9134A2822A76E00C0CDE0 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE913492822A76E00C0CDE0 /* QuestionView.swift */; };
 		5FE9134C2822A77000C0CDE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE9134B2822A77000C0CDE0 /* Assets.xcassets */; };
@@ -19,6 +22,8 @@
 /* Begin PBXFileReference section */
 		5F3AC734282408030041CBBC /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		5F3AC736282408250041CBBC /* Manager.Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.Question.swift; sourceTree = "<group>"; };
+		5FDC436C2829371100A4F011 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		5FDC436F282937FD00A4F011 /* wave.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wave.json; sourceTree = "<group>"; };
 		5FE913442822A76E00C0CDE0 /* SwiftUIQuizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIQuizz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE913472822A76E00C0CDE0 /* SwiftUIQuizzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIQuizzApp.swift; sourceTree = "<group>"; };
 		5FE913492822A76E00C0CDE0 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
@@ -32,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FDC436B282936FF00A4F011 /* LottieSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +51,14 @@
 				5F3AC736282408250041CBBC /* Manager.Question.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		5FDC436E2829378600A4F011 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				5FDC436F282937FD00A4F011 /* wave.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 		5FE9133B2822A76E00C0CDE0 = {
@@ -66,6 +80,7 @@
 		5FE913462822A76E00C0CDE0 /* SwiftUIQuizz */ = {
 			isa = PBXGroup;
 			children = (
+				5FDC436E2829378600A4F011 /* Lottie */,
 				5F3AC733282407F40041CBBC /* Manager */,
 				5FE913562822B91E00C0CDE0 /* Views */,
 				5FE913472822A76E00C0CDE0 /* SwiftUIQuizzApp.swift */,
@@ -88,6 +103,7 @@
 			children = (
 				5FE913492822A76E00C0CDE0 /* QuestionView.swift */,
 				5FE913582822B96F00C0CDE0 /* Views.swift */,
+				5FDC436C2829371100A4F011 /* LaunchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -109,6 +125,9 @@
 			dependencies = (
 			);
 			name = SwiftUIQuizz;
+			packageProductDependencies = (
+				5FDC436A282936FF00A4F011 /* LottieSwiftUI */,
+			);
 			productName = SwiftUIQuizz;
 			productReference = 5FE913442822A76E00C0CDE0 /* SwiftUIQuizz.app */;
 			productType = "com.apple.product-type.application";
@@ -137,6 +156,9 @@
 				Base,
 			);
 			mainGroup = 5FE9133B2822A76E00C0CDE0;
+			packageReferences = (
+				5FDC4369282936FF00A4F011 /* XCRemoteSwiftPackageReference "Lottie-SwiftUI" */,
+			);
 			productRefGroup = 5FE913452822A76E00C0CDE0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -153,6 +175,7 @@
 			files = (
 				5FE9134F2822A77000C0CDE0 /* Preview Assets.xcassets in Resources */,
 				5FE9134C2822A77000C0CDE0 /* Assets.xcassets in Resources */,
+				5FDC4370282937FD00A4F011 /* wave.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F3AC737282408250041CBBC /* Manager.Question.swift in Sources */,
+				5FDC436D2829371100A4F011 /* LaunchView.swift in Sources */,
 				5FE9134A2822A76E00C0CDE0 /* QuestionView.swift in Sources */,
 				5FE913482822A76E00C0CDE0 /* SwiftUIQuizzApp.swift in Sources */,
 				5FE913592822B96F00C0CDE0 /* Views.swift in Sources */,
@@ -386,6 +410,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5FDC4369282936FF00A4F011 /* XCRemoteSwiftPackageReference "Lottie-SwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LukasHromadnik/Lottie-SwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5FDC436A282936FF00A4F011 /* LottieSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FDC4369282936FF00A4F011 /* XCRemoteSwiftPackageReference "Lottie-SwiftUI" */;
+			productName = LottieSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5FE9133C2822A76E00C0CDE0 /* Project object */;
 }
