@@ -20,7 +20,7 @@ extension Views {
                 Text(viewModel.answer2)
                 Text(viewModel.answer3)
                 Text(viewModel.answer4)
-                
+
             }.task {
                 do {
                     let questions = try await viewModel.manager.fetchQuestions()
