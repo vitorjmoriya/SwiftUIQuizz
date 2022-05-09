@@ -10,11 +10,22 @@ import LottieSwiftUI
 
 extension Views {
     struct LaunchView: View {
-        @State var playLottie = true
+        @State var isLoading = true
 
         var body: some View {
-            LottieView(name: "wave", play: $playLottie)
-                .lottieLoopMode(.loop)
+            if isLoading {
+                LottieView(name: "wave", play: .constant(true))
+                    .lottieLoopMode(.loop)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            withAnimation {
+                                self.isLoading = false
+                            }
+                        }
+                    }
+            } else {
+                QuestionView(viewModel: .init())
+            }
         }
     }
 }
