@@ -68,7 +68,7 @@ extension Views.QuestionView {
         let manager = Manager.API()
 
         @Published var title: String = ""
-        @Published var image: Image = .init(systemName: "paperplane.fill")
+        @Published var image: Image = .init(systemName: "exclamationmark.circle.fill")
         @Published var question: String = ""
         @Published var answers: [String] = []
 
@@ -78,6 +78,7 @@ extension Views.QuestionView {
 
         public func update(question: Manager.API.Question) {
             self.title = question.category
+            self.image = Image(question.category)
             self.question = question.question
             self.answers.removeAll()
             self.answers.append(question.correct_answer)
