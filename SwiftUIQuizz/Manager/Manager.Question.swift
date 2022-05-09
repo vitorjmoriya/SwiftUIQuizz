@@ -31,7 +31,7 @@ extension Manager {
             case entertainmentMusic = "Entertainment: Music"
         }
         
-        private let CategoryIDs: [CategoryNames:Int] = [
+        private let categoryIDs: [CategoryNames:Int] = [
             .generalKnowledge:9,
             .entertainmentBooks:10,
             .entertainmentFilms:11,
@@ -39,7 +39,7 @@ extension Manager {
         ]
         
         func queryBuilder(category: CategoryNames, difficulty: Difficulty, amount: Int = 10) throws -> URL {
-            guard let catID = CategoryIDs[category] else {throw QuestionError.invalidCategory}
+            guard let catID = categoryIDs[category] else {throw QuestionError.invalidCategory}
             var components = URLComponents()
             components.scheme = "https"
             components.host = "opentdb.com"
