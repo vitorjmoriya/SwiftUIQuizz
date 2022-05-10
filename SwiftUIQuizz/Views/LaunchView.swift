@@ -17,14 +17,14 @@ extension Views {
                 LottieView(name: "wave", play: .constant(true))
                     .lottieLoopMode(.loop)
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             withAnimation {
                                 self.isLoading = false
                             }
                         }
                     }
             } else {
-                QuestionView(viewModel: .init())
+                InitialView(viewModel: .init())
             }
         }
     }
