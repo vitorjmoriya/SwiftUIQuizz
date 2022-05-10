@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DFD23EE28295C180074AB54 /* Manager.SaveSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */; };
 		5F3AC735282408030041CBBC /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC734282408030041CBBC /* Manager.swift */; };
 		5F3AC737282408250041CBBC /* Manager.API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC736282408250041CBBC /* Manager.API.swift */; };
 		5FDC436B282936FF00A4F011 /* LottieSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5FDC436A282936FF00A4F011 /* LottieSwiftUI */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.SaveSystem.swift; sourceTree = "<group>"; };
 		5F3AC734282408030041CBBC /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		5F3AC736282408250041CBBC /* Manager.API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.API.swift; sourceTree = "<group>"; };
 		5FDC436C2829371100A4F011 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				5F3AC734282408030041CBBC /* Manager.swift */,
 				5F3AC736282408250041CBBC /* Manager.API.swift */,
+				3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				5F3AC737282408250041CBBC /* Manager.API.swift in Sources */,
 				5FDC436D2829371100A4F011 /* LaunchView.swift in Sources */,
 				5FE9134A2822A76E00C0CDE0 /* QuestionView.swift in Sources */,
+				3DFD23EE28295C180074AB54 /* Manager.SaveSystem.swift in Sources */,
 				5FE913482822A76E00C0CDE0 /* SwiftUIQuizzApp.swift in Sources */,
 				5FE913592822B96F00C0CDE0 /* Views.swift in Sources */,
 				5FDC437428294C6600A4F011 /* InitialView.swift in Sources */,
