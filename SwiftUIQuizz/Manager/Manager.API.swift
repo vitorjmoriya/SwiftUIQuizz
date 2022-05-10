@@ -1,5 +1,5 @@
 //
-//  Manager.Question.swift
+//  Manager.API.swift
 //  SwiftUIQuizz
 //
 //  Created by Vitor Jundi Moriya on 05/05/22.
@@ -17,18 +17,24 @@ extension Manager {
             case invalidCategory
         }
 
-        enum Difficulty: String {
+        enum Difficulty: String, CaseIterable {
             case easy
             case medium
             case hard
             case any
         }
 
-        enum CategoryNames: String {
+        enum CategoryNames: String, CaseIterable {
             case generalKnowledge = "General Knowledge"
             case entertainmentBooks = "Entertainment: Books"
             case entertainmentFilms = "Entertainment: Films"
             case entertainmentMusic = "Entertainment: Music"
+        }
+
+        enum AnswerTypes: String, CaseIterable {
+            case any = "Both"
+            case multi = "Multiple Choices"
+            case rightWrong = "Right or Wrong"
         }
 
         private let categoryIDs: [CategoryNames: Int] = [
