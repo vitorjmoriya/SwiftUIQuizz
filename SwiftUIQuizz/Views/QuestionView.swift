@@ -6,21 +6,22 @@
 //
 
 import SwiftUI
+import LottieSwiftUI
 
 extension Views {
     struct QuestionView: View {
         @ObservedObject var viewModel: ViewModel
+        @State var isAnimating: Bool = false
 
         var body: some View {
             VStack {
                 Text(viewModel.title)
                 viewModel.image
                 Text(viewModel.question)
-                Text(viewModel.answer1)
-                Text(viewModel.answer2)
-                Text(viewModel.answer3)
-                Text(viewModel.answer4)
-
+                Button(isAnimating: $isAnimating, isCorrect: true, buttonText: viewModel.answer1)
+                Button(isAnimating: $isAnimating, isCorrect: false, buttonText: viewModel.answer2)
+                Button(isAnimating: $isAnimating, isCorrect: false, buttonText: viewModel.answer3)
+                Button(isAnimating: $isAnimating, isCorrect: false, buttonText: viewModel.answer4)
             }.task {
                 do {
                     let questions = try await viewModel.manager.fetchQuestions()
