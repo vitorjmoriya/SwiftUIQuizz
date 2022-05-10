@@ -12,6 +12,7 @@
 		5FDC436B282936FF00A4F011 /* LottieSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5FDC436A282936FF00A4F011 /* LottieSwiftUI */; };
 		5FDC436D2829371100A4F011 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDC436C2829371100A4F011 /* LaunchView.swift */; };
 		5FDC4370282937FD00A4F011 /* wave.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FDC436F282937FD00A4F011 /* wave.json */; };
+		5FDC437428294C6600A4F011 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDC437328294C6600A4F011 /* InitialView.swift */; };
 		5FE913482822A76E00C0CDE0 /* SwiftUIQuizzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE913472822A76E00C0CDE0 /* SwiftUIQuizzApp.swift */; };
 		5FE9134A2822A76E00C0CDE0 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE913492822A76E00C0CDE0 /* QuestionView.swift */; };
 		5FE9134C2822A77000C0CDE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE9134B2822A77000C0CDE0 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		5F3AC736282408250041CBBC /* Manager.API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.API.swift; sourceTree = "<group>"; };
 		5FDC436C2829371100A4F011 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		5FDC436F282937FD00A4F011 /* wave.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wave.json; sourceTree = "<group>"; };
+		5FDC437328294C6600A4F011 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		5FE913442822A76E00C0CDE0 /* SwiftUIQuizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIQuizz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE913472822A76E00C0CDE0 /* SwiftUIQuizzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIQuizzApp.swift; sourceTree = "<group>"; };
 		5FE913492822A76E00C0CDE0 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				5FE913492822A76E00C0CDE0 /* QuestionView.swift */,
 				5FE913582822B96F00C0CDE0 /* Views.swift */,
 				5FDC436C2829371100A4F011 /* LaunchView.swift */,
+				5FDC437328294C6600A4F011 /* InitialView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				5FE9134A2822A76E00C0CDE0 /* QuestionView.swift in Sources */,
 				5FE913482822A76E00C0CDE0 /* SwiftUIQuizzApp.swift in Sources */,
 				5FE913592822B96F00C0CDE0 /* Views.swift in Sources */,
+				5FDC437428294C6600A4F011 /* InitialView.swift in Sources */,
 				5FFA8587282A886A008F47A5 /* String.swift in Sources */,
 				5F3AC735282408030041CBBC /* Manager.swift in Sources */,
 			);
