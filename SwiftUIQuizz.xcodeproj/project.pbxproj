@@ -17,6 +17,7 @@
 		5FE9134C2822A77000C0CDE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE9134B2822A77000C0CDE0 /* Assets.xcassets */; };
 		5FE9134F2822A77000C0CDE0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE9134E2822A77000C0CDE0 /* Preview Assets.xcassets */; };
 		5FE913592822B96F00C0CDE0 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE913582822B96F00C0CDE0 /* Views.swift */; };
+		5FFA8587282A886A008F47A5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA8586282A886A008F47A5 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5FE9134B2822A77000C0CDE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FE9134E2822A77000C0CDE0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5FE913582822B96F00C0CDE0 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		5FFA8586282A886A008F47A5 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 		5FE913462822A76E00C0CDE0 /* SwiftUIQuizz */ = {
 			isa = PBXGroup;
 			children = (
+				5FFA8585282A8803008F47A5 /* Extension */,
 				5FDC436E2829378600A4F011 /* Lottie */,
 				5F3AC733282407F40041CBBC /* Manager */,
 				5FE913562822B91E00C0CDE0 /* Views */,
@@ -106,6 +109,14 @@
 				5FDC436C2829371100A4F011 /* LaunchView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5FFA8585282A8803008F47A5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5FFA8586282A886A008F47A5 /* String.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +222,7 @@
 				5FE9134A2822A76E00C0CDE0 /* QuestionView.swift in Sources */,
 				5FE913482822A76E00C0CDE0 /* SwiftUIQuizzApp.swift in Sources */,
 				5FE913592822B96F00C0CDE0 /* Views.swift in Sources */,
+				5FFA8587282A886A008F47A5 /* String.swift in Sources */,
 				5F3AC735282408030041CBBC /* Manager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
