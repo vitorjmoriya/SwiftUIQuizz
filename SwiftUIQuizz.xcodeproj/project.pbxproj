@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3DFD23EE28295C180074AB54 /* Manager.SaveSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */; };
+		18DF400E282A8402006B7254 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF400D282A8402006B7254 /* ButtonView.swift */; };
+		18E7B091282AA1690027706C /* correct.json in Resources */ = {isa = PBXBuildFile; fileRef = 18E7B08F282AA1690027706C /* correct.json */; };
+		18E7B092282AA1690027706C /* wrong.json in Resources */ = {isa = PBXBuildFile; fileRef = 18E7B090282AA1690027706C /* wrong.json */; };
 		5F3AC735282408030041CBBC /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC734282408030041CBBC /* Manager.swift */; };
 		5F3AC737282408250041CBBC /* Manager.API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC736282408250041CBBC /* Manager.API.swift */; };
 		5FDC436B282936FF00A4F011 /* LottieSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5FDC436A282936FF00A4F011 /* LottieSwiftUI */; };
@@ -24,6 +27,9 @@
 
 /* Begin PBXFileReference section */
 		3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.SaveSystem.swift; sourceTree = "<group>"; };
+		18DF400D282A8402006B7254 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		18E7B08F282AA1690027706C /* correct.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = correct.json; sourceTree = "<group>"; };
+		18E7B090282AA1690027706C /* wrong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wrong.json; sourceTree = "<group>"; };
 		5F3AC734282408030041CBBC /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		5F3AC736282408250041CBBC /* Manager.API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.API.swift; sourceTree = "<group>"; };
 		5FDC436C2829371100A4F011 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -63,7 +69,9 @@
 		5FDC436E2829378600A4F011 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				18E7B08F282AA1690027706C /* correct.json */,
 				5FDC436F282937FD00A4F011 /* wave.json */,
+				18E7B090282AA1690027706C /* wrong.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -113,6 +121,7 @@
 				5FE913582822B96F00C0CDE0 /* Views.swift */,
 				5FDC436C2829371100A4F011 /* LaunchView.swift */,
 				5FDC437328294C6600A4F011 /* InitialView.swift */,
+				18DF400D282A8402006B7254 /* ButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,8 +199,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E7B092282AA1690027706C /* wrong.json in Resources */,
 				5FE9134F2822A77000C0CDE0 /* Preview Assets.xcassets in Resources */,
 				5FE9134C2822A77000C0CDE0 /* Assets.xcassets in Resources */,
+				18E7B091282AA1690027706C /* correct.json in Resources */,
 				5FDC4370282937FD00A4F011 /* wave.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +243,7 @@
 				5FDC437428294C6600A4F011 /* InitialView.swift in Sources */,
 				5FFA8587282A886A008F47A5 /* String.swift in Sources */,
 				5F3AC735282408030041CBBC /* Manager.swift in Sources */,
+				18DF400E282A8402006B7254 /* ButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
