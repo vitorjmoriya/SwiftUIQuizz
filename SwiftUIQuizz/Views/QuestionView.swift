@@ -14,15 +14,19 @@ extension Views {
         @State var isAnimating: Bool = false
 
         var body: some View {
-            VStack {
-                Text(viewModel.title)
-                viewModel.image
-                Text(viewModel.question)
-                Button(isAnimating: $isAnimating, isCorrect: true, buttonText: viewModel.answer1)
-                Button(isAnimating: $isAnimating, isCorrect: false, buttonText: viewModel.answer2)
-                Button(isAnimating: $isAnimating, isCorrect: false, buttonText: viewModel.answer3)
-                Button(isAnimating: $isAnimating, isCorrect: false, buttonText: viewModel.answer4)
-            }.task {
+            ZStack {
+                Color(red: 132/255, green: 196/255, blue: 164/255).edgesIgnoringSafeArea(.all)
+                VStack {
+                    Text(viewModel.title)
+                    viewModel.image
+                    Text(viewModel.question)
+                    Button(isAnimating: $isAnimating, isCorrect: true, buttonText: viewModel.answer1)
+                    Button(isAnimating: $isAnimating, isCorrect: false, buttonText: viewModel.answer2)
+                    Button(isAnimating: $isAnimating, isCorrect: false, buttonText: viewModel.answer3)
+                    Button(isAnimating: $isAnimating, isCorrect: false, buttonText: viewModel.answer4)
+                }.padding()
+            }
+            .task {
                 do {
                     let questions = try await viewModel.manager.fetchQuestions()
                     viewModel.title = questions[0].category
