@@ -38,7 +38,10 @@ extension Views {
                     .frame(width: 30.0, height: 30.0)
                 }
                 .padding()
-            }
+            }.overlay(RoundedRectangle(cornerRadius: 13)
+                .stroke(Color.black, lineWidth: 1)
+                .foregroundColor(Color(uiColor: UIColor.white.withAlphaComponent(0.5)))
+            )
         }
     }
 }
