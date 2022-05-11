@@ -26,15 +26,16 @@ extension Views {
             SwiftUI.Button(
                 action: { isAnimating = true}
             ) {
-                HStack(spacing: 10.0) {
-                    Text(buttonText).padding(.leading)
-                    if isAnimating {
-                        LottieView(name: isCorrect ? "correct": "wrong")
-                            .lottieLoopMode(.playOnce)
-                            .frame(width: 30.0,
-                                   height: 30.0,
-                                   alignment: Alignment.trailing)
+                HStack {
+                    Text(buttonText)
+                    Spacer()
+                    ZStack {
+                        if isAnimating {
+                            LottieView(name: isCorrect ? "correct": "wrong")
+                                .lottieLoopMode(.playOnce)
+                        }
                     }
+                    .frame(width: 30.0, height: 30.0)
                 }
                 .padding()
             }
