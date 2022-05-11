@@ -24,7 +24,7 @@ extension Views {
         }
         var body: some View {
             SwiftUI.Button(
-                action: { isAnimating = true}
+                action: { isAnimating = true }
             ) {
                 HStack {
                     Text(buttonText)
