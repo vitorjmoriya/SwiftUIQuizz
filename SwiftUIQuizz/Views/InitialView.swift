@@ -17,7 +17,7 @@ extension Views {
 
         var body: some View {
             NavigationView {
-                Form {
+                List {
                     Section("Number of questions") {
                         Stepper {
                             Text("\(viewModel.numberQuestions)")
@@ -53,9 +53,12 @@ extension Views {
                             }
                         }
                     }
+
+                    NavigationLink(destination: QuestionView(viewModel: .init())) {
+                        Text("I wanna play a game")
+                    }
                 }
-            }
-            .navigationTitle("SwiftUIQuizz")
+            }.navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }

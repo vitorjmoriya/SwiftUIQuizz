@@ -24,7 +24,16 @@ extension Views {
                         }
                     }
             } else {
-                InitialView(viewModel: .init())
+                TabView {
+                    Views.InitialView(viewModel: .init())
+                        .tabItem {
+                            Label("Quiz", systemImage: "list.dash")
+                        }
+                    Views.Profile()
+                        .tabItem {
+                            Label("Profile", systemImage: "person.circle.fill")
+                        }
+                }
             }
         }
     }
