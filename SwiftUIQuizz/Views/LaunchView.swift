@@ -29,7 +29,7 @@ extension Views {
                         .tabItem {
                             Label("Quiz", systemImage: "list.dash")
                         }
-                    Views.Profile()
+                    Views.ProfileView(viewModel: .init())
                         .tabItem {
                             Label("Profile", systemImage: "person.circle.fill")
                         }
