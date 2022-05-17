@@ -27,8 +27,9 @@ extension Views {
                         Text(viewModel.title)
                         viewModel.image
                         Text(viewModel.question)
-                        ForEach(0 ..< 3) { _ in Button(isAnimating: $isAnimating, isCorrect: false, buttonText: "") }
+                        ForEach(0 ..< 4) { _ in Button(isAnimating: $isAnimating, isCorrect: false, buttonText: "") }
                     }
+                    .padding()
                     .redacted(reason: .placeholder)
                 } else {
                     VStack {
@@ -44,8 +45,15 @@ extension Views {
                                    buttonText: viewModel.answers[index]
                             )
                         }
-                        SwiftUI.Button(action: { currentQuestion += 1 }) {
-                            Text("Next Question")
+                        if currentQuestion < Manager.API.shared.questions.count - 1 {
+                            SwiftUI.Button(action: { currentQuestion += 1 }) {
+                                Text("Next Question")
+                            }
+                        }
+                        else {
+                            NavigationLink(destination: ConclusionView().navigationBarHidden(true)) {
+                                Text("Finish quiz")
+                            }
                         }
                     }
                     .padding()
