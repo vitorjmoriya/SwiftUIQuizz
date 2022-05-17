@@ -54,7 +54,10 @@ extension Views {
                         }
                     }
 
-                    NavigationLink(destination: QuestionView(viewModel: questionsViewModel).task {
+                    NavigationLink(destination: QuestionView(viewModel: questionsViewModel)
+//                        .navigationBarBackButtonHidden(true)
+                        .navigationBarHidden(true)
+                        .task {
                         do {
                             let questions = try await Manager.API.shared.fetchQuestions(
                                 category: Manager.API.CategoryNames.allCases[selectedCategoryIndex],
@@ -69,6 +72,7 @@ extension Views {
                     }
                 }
             }.navigationViewStyle(StackNavigationViewStyle())
+                .navigationBarHidden(true)
         }
     }
 }
