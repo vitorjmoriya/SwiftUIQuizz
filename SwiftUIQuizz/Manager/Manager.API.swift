@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension Manager {
     struct API {
+        public static var shared = Manager.API()
+        var questions: [Question] = []
+
         enum QuestionError: Error {
             case badURL
             case badResponse
@@ -18,10 +22,10 @@ extension Manager {
         }
 
         enum Difficulty: String, CaseIterable {
+            case any
             case easy
             case medium
             case hard
-            case any
         }
 
         enum CategoryNames: String, CaseIterable {
@@ -105,15 +109,14 @@ extension Manager {
             return url
         }
 
-        // MARK: Using Async/Await
-        func fetchQuestions() async throws -> [Question] {
-            let url = try queryBuilder(category: .generalKnowledge, difficulty: .medium, amount: 10)
-
+        mutating func fetchQuestions(category: CategoryNames, difficulty: Difficulty, amount: Int = 10) async throws -> [Question] {
+            let url = try queryBuilder(category: category, difficulty: difficulty, amount: amount)
             let session = URLSession(configuration: .ephemeral)
             let (data, response) = try await(session.data(from: url))
             guard let response = response as? HTTPURLResponse else { throw QuestionError.badResponse }
             guard response.statusCode == 200 else { throw QuestionError.badResponse }
             let result = try JSONDecoder().decode(Response.self, from: data)
+            self.questions = result.results
             return result.results
         }
     }
