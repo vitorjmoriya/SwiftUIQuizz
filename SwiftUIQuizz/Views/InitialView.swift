@@ -10,7 +10,7 @@ import SwiftUI
 extension Views {
     struct InitialView: View {
         @ObservedObject var viewModel: ViewModel
-
+        let questionsViewModel: Views.QuestionView.ViewModel = .init()
         @State private var selectedDifficultyIndex = 0
         @State private var selectedCategoryIndex = 0
         @State private var selectedTypeIndex = 0
@@ -54,7 +54,17 @@ extension Views {
                         }
                     }
 
-                    NavigationLink(destination: QuestionView(viewModel: .init())) {
+                    NavigationLink(destination: QuestionView(viewModel: questionsViewModel).task {
+                        do {
+                            let questions = try await Manager.API.shared.fetchQuestions(
+                                category: Manager.API.CategoryNames.allCases[selectedCategoryIndex],
+                                difficulty: Manager.API.Difficulty.allCases[selectedDifficultyIndex]
+                            )
+                            questionsViewModel.update(question: questions.first!)
+                        } catch {
+                            print(error)
+                        }
+                    }) {
                         Text("I wanna play a game")
                     }
                 }
