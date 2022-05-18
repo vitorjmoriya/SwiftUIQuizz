@@ -18,7 +18,6 @@ extension Views {
                 isAnimating = false
             }
         }
-
         var body: some View {
             ZStack {
                 Color(red: 132/255, green: 196/255, blue: 164/255).edgesIgnoringSafeArea(.all)
