@@ -57,8 +57,8 @@ extension Manager {
 
         enum AnswerTypes: String, CaseIterable {
             case any = "Both"
-            case multi = "Multiple Choices"
-            case rightWrong = "Right or Wrong"
+            case multi = "multiple"
+            case rightWrong = "boolean"
         }
 
         private let categoryIDs: [CategoryNames: Int] = [
@@ -97,7 +97,7 @@ extension Manager {
             var queryItems: [URLQueryItem] = [
                 URLQueryItem(name: "amount", value: String(amount) ),
                 URLQueryItem(name: "category", value: String(catID) ),
-                URLQueryItem(name: "type", value: "multiple")
+                //URLQueryItem(name: "type", value: "")
             ]
             if difficulty != .any {
                 queryItems.append( URLQueryItem(name: "difficulty", value: difficulty.rawValue as String) )

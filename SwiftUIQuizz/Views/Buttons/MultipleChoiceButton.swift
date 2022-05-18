@@ -9,7 +9,7 @@ import SwiftUI
 import LottieSwiftUI
 
 extension Views {
-    struct Button: View {
+    struct MultipleChoiceButton: View {
         @Binding var isAnimating: Bool
         let isCorrect: Bool // True -> correct answer -- False -> wrong answer
         let buttonText: String
