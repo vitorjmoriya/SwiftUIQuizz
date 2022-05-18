@@ -11,7 +11,6 @@ extension Views {
     struct ConclusionView: View {
         var body: some View {
             Text("Finished Quiz")
-            
             NavigationLink(destination: InitialView(viewModel: .init()).navigationBarHidden(true)) {
                 Text("Play Again")
             }
