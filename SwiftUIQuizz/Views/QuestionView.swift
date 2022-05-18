@@ -26,7 +26,10 @@ extension Views {
                         Text(viewModel.title)
                         viewModel.image
                         Text(viewModel.question)
-                        ForEach(0 ..< 4) { _ in Button(isAnimating: $isAnimating, isCorrect: false, buttonText: "") }
+                        ForEach(0 ..< 4) { _ in MultipleChoiceButton(
+                            isAnimating: $isAnimating,
+                            isCorrect: false,
+                            buttonText: "") }
                     }
                     .padding()
                     .redacted(reason: .placeholder)
@@ -35,21 +38,34 @@ extension Views {
                         Text(viewModel.title)
                         viewModel.image
                         Text(viewModel.question)
-                        ForEach(viewModel.answers.indices) { index in
-                            Button(isAnimating: $isAnimating,
-                                   isCorrect: viewModel.checkIfRightAnswer(
-                                        questionNumber: currentQuestion,
-                                        index: index
-                                   ),
-                                   buttonText: viewModel.answers[index]
-                            )
+                        if viewModel.answerType == Manager.API.AnswerTypes.rightWrong.rawValue {
+                            HStack {
+                                ForEach(viewModel.answers.indices) { index in
+                                    BooleanButton(isAnimating: $isAnimating,
+                                                  isCorrect: viewModel.checkIfRightAnswer(
+                                                    questionNumber: currentQuestion,
+                                                    index: index
+                                                  ),
+                                                  buttonText: viewModel.answers[index]
+                                    )
+                                }
+                            }
+                        } else {
+                            ForEach(viewModel.answers.indices) { index in
+                                MultipleChoiceButton(isAnimating: $isAnimating,
+                                              isCorrect: viewModel.checkIfRightAnswer(
+                                                questionNumber: currentQuestion,
+                                                index: index
+                                              ),
+                                              buttonText: viewModel.answers[index]
+                                )
+                            }
                         }
                         if currentQuestion < Manager.API.shared.questions.count - 1 {
                             SwiftUI.Button(action: { currentQuestion += 1 }) {
                                 Text("Next Question")
                             }
-                        }
-                        else {
+                        } else {
                             NavigationLink(destination: ConclusionView().navigationBarHidden(true)) {
                                 Text("Finish quiz")
                             }
@@ -65,20 +81,19 @@ extension Views {
 extension Views.QuestionView {
     class ViewModel: ObservableObject {
         let manager = Manager.API()
-
         @Published var title: String = ""
         @Published var image: Image = .init(systemName: "exclamationmark.circle.fill")
         @Published var question: String = ""
+        @Published var answerType: String = ""
         @Published var answers: [String] = []
-
         public func checkIfRightAnswer(questionNumber: Int, index: Int) -> Bool {
             return answers[index] == Manager.API.shared.questions[questionNumber].correct_answer
         }
-
         public func update(question: Manager.API.Question) {
             self.title = question.category
             self.image = Image(question.category)
             self.question = question.question
+            self.answerType = question.type
             self.answers.removeAll()
             self.answers.append(question.correct_answer)
             question.incorrect_answers.forEach {

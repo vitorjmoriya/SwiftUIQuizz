@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		185BB81228351FA900BB689A /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185BB81128351FA900BB689A /* BooleanButton.swift */; };
 		185BB8152835202700BB689A /* wrong.json in Resources */ = {isa = PBXBuildFile; fileRef = 185BB8132835202700BB689A /* wrong.json */; };
 		185BB8162835202700BB689A /* correct.json in Resources */ = {isa = PBXBuildFile; fileRef = 185BB8142835202700BB689A /* correct.json */; };
-		18DF400E282A8402006B7254 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF400D282A8402006B7254 /* ButtonView.swift */; };
+		18DF400E282A8402006B7254 /* MultipleChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF400D282A8402006B7254 /* MultipleChoiceButton.swift */; };
 		3DFD23EE28295C180074AB54 /* Manager.SaveSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */; };
 		5F3A266A282BDF2C00E857CC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A2669282BDF2C00E857CC /* ProfileView.swift */; };
 		5F3AC735282408030041CBBC /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC734282408030041CBBC /* Manager.swift */; };
@@ -28,10 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		185BB81128351FA900BB689A /* BooleanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanButton.swift; sourceTree = "<group>"; };
 		185BB8132835202700BB689A /* wrong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wrong.json; sourceTree = "<group>"; };
 		185BB8142835202700BB689A /* correct.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = correct.json; sourceTree = "<group>"; };
-		18DF400D282A8402006B7254 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
-		230993A42833CA9600D6B5E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		18DF400D282A8402006B7254 /* MultipleChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceButton.swift; sourceTree = "<group>"; };
 		3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.SaveSystem.swift; sourceTree = "<group>"; };
 		5F3A2669282BDF2C00E857CC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5F3AC734282408030041CBBC /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
@@ -61,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		185BB80F28351F8800BB689A /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				18DF400D282A8402006B7254 /* MultipleChoiceButton.swift */,
+				185BB81128351FA900BB689A /* BooleanButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		5F3AC733282407F40041CBBC /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,11 +133,11 @@
 		5FE913562822B91E00C0CDE0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				185BB80F28351F8800BB689A /* Buttons */,
 				5FE913492822A76E00C0CDE0 /* QuestionView.swift */,
 				5FE913582822B96F00C0CDE0 /* Views.swift */,
 				5FDC436C2829371100A4F011 /* LaunchView.swift */,
 				5FDC437328294C6600A4F011 /* InitialView.swift */,
-				18DF400D282A8402006B7254 /* ButtonView.swift */,
 				5F3A2669282BDF2C00E857CC /* ProfileView.swift */,
 				5F9C58EC2833D0B100070A37 /* ConclusionView.swift */,
 			);
@@ -246,13 +256,14 @@
 				5FDC436D2829371100A4F011 /* LaunchView.swift in Sources */,
 				5FE9134A2822A76E00C0CDE0 /* QuestionView.swift in Sources */,
 				3DFD23EE28295C180074AB54 /* Manager.SaveSystem.swift in Sources */,
+				185BB81228351FA900BB689A /* BooleanButton.swift in Sources */,
 				5FE913482822A76E00C0CDE0 /* SwiftUIQuizzApp.swift in Sources */,
 				5FE913592822B96F00C0CDE0 /* Views.swift in Sources */,
 				5FDC437428294C6600A4F011 /* InitialView.swift in Sources */,
 				5FFA8587282A886A008F47A5 /* String.swift in Sources */,
 				5F3AC735282408030041CBBC /* Manager.swift in Sources */,
 				5F3A266A282BDF2C00E857CC /* ProfileView.swift in Sources */,
-				18DF400E282A8402006B7254 /* ButtonView.swift in Sources */,
+				18DF400E282A8402006B7254 /* MultipleChoiceButton.swift in Sources */,
 				5F9C58ED2833D0B100070A37 /* ConclusionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
