@@ -93,7 +93,7 @@ extension Views {
 }
 
 extension Views.QuestionView {
-    
+
 }
 
 extension Views.QuestionView {
@@ -115,7 +115,7 @@ extension Views.QuestionView {
         public func checkBooleanQuestion(answer: String, questionNumber: Int) -> Bool {
             return answer == Manager.API.shared.questions[questionNumber].correct_answer ? true : false
         }
-        
+
         public func update(question: Manager.API.Question) {
             self.title = question.category
             self.image = Image(question.category)
