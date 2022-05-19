@@ -64,6 +64,8 @@ extension Views {
                                 ),
                                 buttonText: viewModel.answers.count == 0 ? "" : "True"
                             )
+                            
+                            Spacer()
 
                             BooleanButton(isAnimating: $isAnimating,
                                 isCorrect: viewModel.checkBooleanQuestion(

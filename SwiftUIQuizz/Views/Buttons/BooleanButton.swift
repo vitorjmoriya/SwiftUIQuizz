@@ -28,18 +28,22 @@ extension Views {
             ) {
                 ZStack {
                     Text(buttonText)
-                        .frame(width: 100, height: 100)
                         .foregroundColor(Color.black)
-                        .background(buttonText == "True" ? Color.green: Color.red)
-                        .clipShape(Circle())
                     if isAnimating {
                         LottieView(name: isCorrect ? "correct": "wrong")
                             .lottieLoopMode(.playOnce)
                     }
                 }
-                .frame(width: 150, height: 150)
+                .frame(width: 100, height: 100)
                 .padding()
-            }
+            }.background(
+                RoundedRectangle(cornerRadius: 13, style: .circular)
+                    .fill(buttonText == "True" ? Color.green: Color.red)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 13, style: .circular)
+                    .strokeBorder(Color.black, lineWidth: 3)
+            )
         }
     }
 }
