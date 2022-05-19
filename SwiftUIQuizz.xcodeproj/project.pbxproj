@@ -11,6 +11,7 @@
 		185BB8152835202700BB689A /* wrong.json in Resources */ = {isa = PBXBuildFile; fileRef = 185BB8132835202700BB689A /* wrong.json */; };
 		185BB8162835202700BB689A /* correct.json in Resources */ = {isa = PBXBuildFile; fileRef = 185BB8142835202700BB689A /* correct.json */; };
 		18DF400E282A8402006B7254 /* MultipleChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF400D282A8402006B7254 /* MultipleChoiceButton.swift */; };
+		23A73D02283686C700C611D4 /* Quicksand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23A73D01283686C700C611D4 /* Quicksand.ttf */; };
 		3DFD23EE28295C180074AB54 /* Manager.SaveSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */; };
 		5F3A266A282BDF2C00E857CC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A2669282BDF2C00E857CC /* ProfileView.swift */; };
 		5F3AC735282408030041CBBC /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC734282408030041CBBC /* Manager.swift */; };
@@ -33,6 +34,7 @@
 		185BB8132835202700BB689A /* wrong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wrong.json; sourceTree = "<group>"; };
 		185BB8142835202700BB689A /* correct.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = correct.json; sourceTree = "<group>"; };
 		18DF400D282A8402006B7254 /* MultipleChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceButton.swift; sourceTree = "<group>"; };
+		23A73D01283686C700C611D4 /* Quicksand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Quicksand.ttf; sourceTree = "<group>"; };
 		3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.SaveSystem.swift; sourceTree = "<group>"; };
 		5F3A2669282BDF2C00E857CC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5F3AC734282408030041CBBC /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
@@ -69,6 +71,22 @@
 				185BB81128351FA900BB689A /* BooleanButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		23A73CFF2836834100C611D4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				23A73D002836834F00C611D4 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		23A73D002836834F00C611D4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				23A73D01283686C700C611D4 /* Quicksand.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		5F3AC733282407F40041CBBC /* Manager */ = {
@@ -110,8 +128,8 @@
 		5FE913462822A76E00C0CDE0 /* SwiftUIQuizz */ = {
 			isa = PBXGroup;
 			children = (
+				23A73CFF2836834100C611D4 /* Resources */,
 				5FFA8585282A8803008F47A5 /* Extension */,
-				230993A42833CA9600D6B5E1 /* Info.plist */,
 				5FDC436E2829378600A4F011 /* Lottie */,
 				5F3AC733282407F40041CBBC /* Manager */,
 				5FE913562822B91E00C0CDE0 /* Views */,
@@ -218,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FE9134F2822A77000C0CDE0 /* Preview Assets.xcassets in Resources */,
+				23A73D02283686C700C611D4 /* Quicksand.ttf in Resources */,
 				5FE9134C2822A77000C0CDE0 /* Assets.xcassets in Resources */,
 				185BB8162835202700BB689A /* correct.json in Resources */,
 				5FDC4370282937FD00A4F011 /* wave.json in Resources */,
@@ -390,7 +409,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -423,7 +441,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

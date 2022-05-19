@@ -12,6 +12,7 @@ struct SwiftUIQuizzApp: App {
     var body: some Scene {
         WindowGroup {
             Views.LaunchView()
+                .font(Font.custom("Quicksand", size: 18))
         }
     }
 }
