@@ -55,7 +55,6 @@ extension Views {
                     }
 
                     NavigationLink(destination: QuestionView(viewModel: questionsViewModel)
-//                        .navigationBarBackButtonHidden(true)
                         .navigationBarHidden(true)
                         .task {
                         do {

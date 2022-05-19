@@ -22,60 +22,76 @@ extension Views {
             ZStack {
                 Color(red: 132/255, green: 196/255, blue: 164/255).edgesIgnoringSafeArea(.all)
                 if viewModel.answers.count == 0 {
-                    VStack {
-                        Text(viewModel.title)
-                        viewModel.image
-                        Text(viewModel.question)
-                        ForEach(0 ..< 4) { _ in MultipleChoiceButton(
-                            isAnimating: $isAnimating,
-                            isCorrect: false,
-                            buttonText: "") }
-                    }
-                    .padding()
-                    .redacted(reason: .placeholder)
+                    renderBody(answerType: .multi, isAnimating: $isAnimating)
+                        .padding()
+                        .redacted(reason: .placeholder)
                 } else {
-                    VStack {
-                        Text(viewModel.title)
-                        viewModel.image
-                        Text(viewModel.question)
-                        if viewModel.answerType == Manager.API.AnswerTypes.rightWrong.rawValue {
-                            HStack {
-                                ForEach(viewModel.answers.indices) { index in
-                                    BooleanButton(isAnimating: $isAnimating,
-                                                  isCorrect: viewModel.checkIfRightAnswer(
-                                                    questionNumber: currentQuestion,
-                                                    index: index
-                                                  ),
-                                                  buttonText: viewModel.answers[index]
-                                    )
-                                }
-                            }
-                        } else {
-                            ForEach(viewModel.answers.indices) { index in
-                                MultipleChoiceButton(isAnimating: $isAnimating,
-                                              isCorrect: viewModel.checkIfRightAnswer(
-                                                questionNumber: currentQuestion,
-                                                index: index
-                                              ),
-                                              buttonText: viewModel.answers[index]
-                                )
-                            }
-                        }
-                        if currentQuestion < Manager.API.shared.questions.count - 1 {
-                            SwiftUI.Button(action: { currentQuestion += 1 }) {
-                                Text("Next Question")
-                            }
-                        } else {
-                            NavigationLink(destination: ConclusionView().navigationBarHidden(true)) {
-                                Text("Finish quiz")
-                            }
-                        }
-                    }
+                    renderBody(
+                        answerType: viewModel.answerType == Manager.API.AnswerTypes.multi.rawValue ? .multi : .rightWrong,
+                        isAnimating: $isAnimating
+                    )
                     .padding()
                 }
             }
         }
+
+        @ViewBuilder private func renderBody(
+            answerType: Manager.API.AnswerTypes,
+            isAnimating: Binding<Bool>
+        ) -> some View {
+            VStack {
+                Text(viewModel.title)
+                viewModel.image
+                Text(viewModel.question)
+                switch answerType {
+                case .multi:
+                    ForEach(0 ..< 4) { index in
+                        MultipleChoiceButton(
+                            isAnimating: $isAnimating,
+                            isCorrect: viewModel.checkIfRightAnswer(
+                                questionNumber: currentQuestion,
+                                index: index
+                            ),
+                            buttonText: viewModel.answers.count == 0 ? "" : viewModel.answers[index]
+                        )
+                    }
+                case .rightWrong:
+                        HStack {
+                            BooleanButton(isAnimating: $isAnimating,
+                                isCorrect: viewModel.checkBooleanQuestion(
+                                    answer: "True",
+                                    questionNumber: currentQuestion
+                                ),
+                                buttonText: viewModel.answers.count == 0 ? "" : "True"
+                            )
+
+                            BooleanButton(isAnimating: $isAnimating,
+                                isCorrect: viewModel.checkBooleanQuestion(
+                                  answer: "False",
+                                  questionNumber: currentQuestion
+                                ),
+                                buttonText: viewModel.answers.count == 0 ? "" : "False"
+                            )
+                        }
+                case .any:
+                    fatalError("Don't insert .any")
+                }
+                if currentQuestion < Manager.API.shared.questions.count - 1 {
+                    SwiftUI.Button(action: { currentQuestion += 1 }) {
+                        Text("Next Question")
+                    }
+                } else {
+                    NavigationLink(destination: ConclusionView().navigationBarHidden(true)) {
+                        Text("Finish quiz")
+                    }
+                }
+            }
+        }
     }
+}
+
+extension Views.QuestionView {
+    
 }
 
 extension Views.QuestionView {
@@ -86,9 +102,18 @@ extension Views.QuestionView {
         @Published var question: String = ""
         @Published var answerType: String = ""
         @Published var answers: [String] = []
+
         public func checkIfRightAnswer(questionNumber: Int, index: Int) -> Bool {
+            if answers.count == 0 {
+                return false
+            }
             return answers[index] == Manager.API.shared.questions[questionNumber].correct_answer
         }
+
+        public func checkBooleanQuestion(answer: String, questionNumber: Int) -> Bool {
+            return answer == Manager.API.shared.questions[questionNumber].correct_answer ? true : false
+        }
+        
         public func update(question: Manager.API.Question) {
             self.title = question.category
             self.image = Image(question.category)
