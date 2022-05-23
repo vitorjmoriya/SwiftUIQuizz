@@ -30,7 +30,7 @@ extension Views {
                             selection: $selectedDifficultyIndex,
                             label: Text("Difficulty")
                         ) {
-                            ForEach(0 ..< Manager.API.Difficulty.allCases.count) {
+                            ForEach(0 ..< Manager.API.Difficulty.allCases.count, id: \.self) {
                                 Text(Manager.API.Difficulty.allCases[$0].rawValue.capitalizingFirstLetter())
                             }
                         }
@@ -39,7 +39,7 @@ extension Views {
                             selection: $selectedCategoryIndex,
                             label: Text("Category")
                         ) {
-                            ForEach(0 ..< Manager.API.CategoryNames.allCases.count) {
+                            ForEach(0 ..< Manager.API.CategoryNames.allCases.count, id: \.self) {
                                 Text(Manager.API.CategoryNames.allCases[$0].rawValue)
                             }
                         }
@@ -48,8 +48,8 @@ extension Views {
                             selection: $selectedTypeIndex,
                             label: Text("Type")
                         ) {
-                            ForEach(0 ..< Manager.API.AnswerTypes.allCases.count) {
-                                Text(Manager.API.AnswerTypes.allCases[$0].rawValue)
+                            ForEach(0 ..< Manager.API.AnswerTypes.allCases.count, id: \.self) {
+                                Text(Manager.API.AnswerTypes.allCases[$0].rawValue.capitalizingFirstLetter())
                             }
                         }
                     }
