@@ -15,6 +15,7 @@
 		3DFD23EE28295C180074AB54 /* Manager.SaveSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */; };
 		5F0B738C283BACCE008EE6DC /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B738B283BACCE008EE6DC /* DesignSystem.swift */; };
 		5F0B738E283BAD6E008EE6DC /* DesignSystem.Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B738D283BAD6E008EE6DC /* DesignSystem.Color.swift */; };
+		5F0B7390283BC476008EE6DC /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B738F283BC476008EE6DC /* Data.swift */; };
 		5F3A266A282BDF2C00E857CC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A2669282BDF2C00E857CC /* ProfileView.swift */; };
 		5F3AC735282408030041CBBC /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC734282408030041CBBC /* Manager.swift */; };
 		5F3AC737282408250041CBBC /* Manager.API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3AC736282408250041CBBC /* Manager.API.swift */; };
@@ -40,6 +41,7 @@
 		3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.SaveSystem.swift; sourceTree = "<group>"; };
 		5F0B738B283BACCE008EE6DC /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		5F0B738D283BAD6E008EE6DC /* DesignSystem.Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.Color.swift; sourceTree = "<group>"; };
+		5F0B738F283BC476008EE6DC /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		5F3A2669282BDF2C00E857CC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5F3AC734282408030041CBBC /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		5F3AC736282408250041CBBC /* Manager.API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.API.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				5FFA8586282A886A008F47A5 /* String.swift */,
+				5F0B738F283BC476008EE6DC /* Data.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				18DF400E282A8402006B7254 /* MultipleChoiceButton.swift in Sources */,
 				5F0B738E283BAD6E008EE6DC /* DesignSystem.Color.swift in Sources */,
 				5F9C58ED2833D0B100070A37 /* ConclusionView.swift in Sources */,
+				5F0B7390283BC476008EE6DC /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
