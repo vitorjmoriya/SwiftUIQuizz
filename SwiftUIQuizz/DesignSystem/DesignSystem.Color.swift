@@ -78,5 +78,7 @@ extension DesignSystem.Color {
 extension DesignSystem.Color {
     enum System {
         static let basicColor = DesignSystem.Color(uiColor: .init(red: 132/255, green: 196/255, blue: 164/255))
+        static let launchColor = DesignSystem.Color(uiColor: .init(red: 151/255, green: 191/255, blue: 178/255))
+        static let logoFontColor = DesignSystem.Color(uiColor: .init(red: 90/255, green: 144/255, blue: 131/255))
     }
 }
