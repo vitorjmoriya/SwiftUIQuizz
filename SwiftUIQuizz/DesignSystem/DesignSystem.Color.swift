@@ -4,6 +4,7 @@
 //
 //  Created by Vitor Jundi Moriya on 23/05/22.
 //
+
 import SwiftUI
 
 extension DesignSystem {
@@ -68,6 +69,8 @@ extension DesignSystem.Color {
             return DesignSystem.Color(uiColor: .init(red: 132/255, green: 196/255, blue: 164/255))
         case .entertainmentCartoonAndAnimations:
             return DesignSystem.Color(uiColor: .init(red: 132/255, green: 196/255, blue: 164/255))
+        case .all:
+            return DesignSystem.Color(uiColor: .red)
         }
     }
 }

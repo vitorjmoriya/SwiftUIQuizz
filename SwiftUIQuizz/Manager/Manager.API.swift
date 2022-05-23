@@ -29,6 +29,7 @@ extension Manager {
         }
 
         enum CategoryNames: String, CaseIterable {
+            case all = "All"
             case generalKnowledge = "General Knowledge"
             case entertainmentBooks = "Entertainment: Books"
             case entertainmentFilms = "Entertainment: Films"
@@ -89,22 +90,25 @@ extension Manager {
         ]
 
         func queryBuilder(category: CategoryNames, difficulty: Difficulty, amount: Int = 10) throws -> URL {
-            guard let catID = categoryIDs[category] else {throw QuestionError.invalidCategory}
             var components = URLComponents()
             components.scheme = "https"
             components.host = "opentdb.com"
             components.path = "/api.php"
+
             var queryItems: [URLQueryItem] = [
                 URLQueryItem(name: "amount", value: String(amount) ),
-                URLQueryItem(name: "category", value: String(catID) ),
-                //URLQueryItem(name: "type", value: "")
             ]
+
+            if category != .all {
+                guard let catID = categoryIDs[category] else { throw QuestionError.invalidCategory }
+                queryItems.append(URLQueryItem(name: "category", value: String(catID)))
+            }
+
             if difficulty != .any {
-                queryItems.append( URLQueryItem(name: "difficulty", value: difficulty.rawValue as String) )
+                queryItems.append(URLQueryItem(name: "difficulty", value: difficulty.rawValue as String))
             }
 
             components.queryItems = queryItems
-
             guard let url = components.url else { throw QuestionError.badURL }
             return url
         }
