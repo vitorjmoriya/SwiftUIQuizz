@@ -27,7 +27,8 @@ extension Views {
                         .redacted(reason: .placeholder)
                 } else {
                     renderBody(
-                        answerType: viewModel.answerType == Manager.API.AnswerTypes.multi.rawValue ? .multi : .rightWrong,
+                        answerType: viewModel.answerType ==
+                                        Manager.API.AnswerTypes.multi.rawValue ? .multi : .rightWrong,
                         isAnimating: $isAnimating
                     )
                     .padding()
@@ -64,7 +65,6 @@ extension Views {
                                 ),
                                 buttonText: viewModel.answers.count == 0 ? "" : "True"
                             )
-                            
                             Spacer()
 
                             BooleanButton(isAnimating: $isAnimating,
@@ -93,10 +93,6 @@ extension Views {
 }
 
 extension Views.QuestionView {
-
-}
-
-extension Views.QuestionView {
     class ViewModel: ObservableObject {
         let manager = Manager.API()
         @Published var title: String = ""
@@ -115,7 +111,6 @@ extension Views.QuestionView {
         public func checkBooleanQuestion(answer: String, questionNumber: Int) -> Bool {
             return answer == Manager.API.shared.questions[questionNumber].correct_answer ? true : false
         }
-
         public func update(question: Manager.API.Question) {
             self.title = question.category
             self.image = Image(question.category)
