@@ -29,21 +29,34 @@ extension Views {
                 ZStack {
                     Text(buttonText)
                         .foregroundColor(Color.black)
+                        .font(.system(size: Constants.fontSize))
                     if isAnimating {
                         LottieView(name: isCorrect ? "correct": "wrong")
                             .lottieLoopMode(.playOnce)
                     }
                 }
-                .frame(width: 100, height: 100)
+                .frame(width: Constants.animationFrame, height: Constants.animationFrame)
                 .padding()
             }.background(
-                RoundedRectangle(cornerRadius: 13, style: .circular)
-                    .fill(buttonText == "True" ? Color.green: Color.red)
+                RoundedRectangle(cornerRadius: Constants.rectangleCornerRadius, style: .circular)
+                    .fill(buttonText == "True" ?
+                          Color.green.opacity(Constants.opacity):
+                          Color.red.opacity(Constants.opacity))
             )
             .overlay(
-                RoundedRectangle(cornerRadius: 13, style: .circular)
-                    .strokeBorder(Color.black, lineWidth: 3)
+                RoundedRectangle(cornerRadius: Constants.rectangleCornerRadius, style: .circular)
+                    .strokeBorder(Color.black, lineWidth: Constants.strokeLineWidth)
             )
         }
+    }
+}
+
+extension Views.BooleanButton {
+    struct Constants {
+        static let fontSize: CGFloat = 20
+        static let animationFrame: CGFloat = 100
+        static let rectangleCornerRadius: CGFloat = 13
+        static let opacity: Double = 0.75
+        static let strokeLineWidth: CGFloat = 3
     }
 }
