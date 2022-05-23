@@ -118,8 +118,24 @@ extension Manager {
             guard let response = response as? HTTPURLResponse else { throw QuestionError.badResponse }
             guard response.statusCode == 200 else { throw QuestionError.badResponse }
             let result = try JSONDecoder().decode(Response.self, from: data)
-            self.questions = result.results
-            return result.results
+            let questions = Manager.API.parseResponse(questions: result.results)
+            self.questions = questions
+            return questions
+        }
+
+        static func parseResponse(questions: [Manager.API.Question]) -> [Manager.API.Question] {
+            return questions.map { question in
+                return Manager.API.Question(
+                    category: question.category.html2String,
+                    type: question.type,
+                    difficulty: question.difficulty,
+                    question: question.question.html2String,
+                    correct_answer: question.correct_answer.html2String,
+                    incorrect_answers: question.incorrect_answers.map { answer in
+                        return answer.html2String
+                    }
+                )
+            }
         }
     }
 }
