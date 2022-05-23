@@ -20,7 +20,9 @@ extension Views {
         }
         var body: some View {
             ZStack {
-                DesignSystem.Color.System.basicColor.color.uiColor.edgesIgnoringSafeArea(.all)
+//                DesignSystem.Color.System.basicColor.color.uiColor.edgesIgnoringSafeArea(.all)
+                DesignSystem.Color.byCategory(categoryName: Manager.API.CategoryNames.init(rawValue: viewModel.title) ?? .animals)
+                    .uiColor.edgesIgnoringSafeArea(.all)
                 if viewModel.answers.count == 0 {
                     renderBody(answerType: .multi, isAnimating: $isAnimating)
                         .padding()
@@ -55,7 +57,7 @@ extension Views {
                             ),
                             buttonText: viewModel.answers.count == 0 ? "" : viewModel.answers[index]
                         )
-                    }
+                    }.foregroundColor(.black)
                 case .rightWrong:
                         HStack {
                             BooleanButton(isAnimating: $isAnimating,
