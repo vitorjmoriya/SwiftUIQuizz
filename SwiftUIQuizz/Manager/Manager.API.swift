@@ -109,7 +109,9 @@ extension Manager {
             return url
         }
 
-        mutating func fetchQuestions(category: CategoryNames, difficulty: Difficulty, amount: Int = 10) async throws -> [Question] {
+        mutating func fetchQuestions(category: CategoryNames,
+                                     difficulty: Difficulty,
+                                     amount: Int = 10) async throws -> [Question] {
             let url = try queryBuilder(category: category, difficulty: difficulty, amount: amount)
             let session = URLSession(configuration: .ephemeral)
             let (data, response) = try await(session.data(from: url))
