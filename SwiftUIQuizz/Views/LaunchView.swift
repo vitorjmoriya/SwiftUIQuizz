@@ -14,15 +14,24 @@ extension Views {
 
         var body: some View {
             if isLoading {
-                LottieView(name: "wave", play: .constant(true))
-                    .lottieLoopMode(.loop)
+                ZStack {
+                    DesignSystem.Color.System.launchColor.color.uiColor.edgesIgnoringSafeArea(.all)
+                    VStack {
+                        Constants.logoImage
+                            .resizable()
+                            .frame(width: Constants.logoImageSize, height: Constants.logoImageSize, alignment: .center)
+                        Text(Constants.logoName)
+                            .font(.system(size: Constants.fontSize))
+                            .foregroundColor(DesignSystem.Color.System.logoFontColor.color.uiColor)
+                    }
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                             withAnimation {
-                                self.isLoading = false
+                            self.isLoading = false
                             }
                         }
                     }
+                }
             } else {
                 TabView {
                     Views.InitialView(viewModel: .init())
@@ -36,6 +45,15 @@ extension Views {
                 }
             }
         }
+    }
+}
+
+extension Views.LaunchView {
+    struct Constants {
+        static let logoImage: Image = .init("Logo")
+        static let logoImageSize: CGFloat = 300
+        static let logoName: String = "SwitUI Quiz"
+        static let fontSize: CGFloat = 40
     }
 }
 
