@@ -20,7 +20,7 @@ extension Views {
         }
         var body: some View {
             ZStack {
-                Color(red: 132/255, green: 196/255, blue: 164/255).edgesIgnoringSafeArea(.all)
+                DesignSystem.Color.System.basicColor.color.uiColor.edgesIgnoringSafeArea(.all)
                 if viewModel.answers.count == 0 {
                     renderBody(answerType: .multi, isAnimating: $isAnimating)
                         .padding()
