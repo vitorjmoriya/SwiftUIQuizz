@@ -57,7 +57,7 @@ extension Views {
                             ),
                             buttonText: viewModel.answers.count == 0 ? "" : viewModel.answers[index]
                         )
-                    }.foregroundColor(.black)
+                    }
                 case .rightWrong:
                         HStack {
                             BooleanButton(isAnimating: $isAnimating,
@@ -89,7 +89,7 @@ extension Views {
                         Text("Finish quiz")
                     }
                 }
-            }
+            }.foregroundColor(DesignSystem.Color.textColorByCategory(categoryName: Manager.API.CategoryNames.init(rawValue: viewModel.title) ?? .sports).uiColor)
         }
     }
 }
