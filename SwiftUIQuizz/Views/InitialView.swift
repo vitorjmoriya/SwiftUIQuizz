@@ -58,6 +58,7 @@ extension Views {
                         .navigationBarHidden(true)
                         .task {
                         do {
+                            Manager.AnswerTracker.shared.startQuiz(questionAmount: viewModel.numberQuestions)
                             let questions = try await Manager.API.shared.fetchQuestions(
                                 category: Manager.API.QuestionCategory.allCases[selectedCategoryIndex],
                                 difficulty: Manager.API.Difficulty.allCases[selectedDifficultyIndex],

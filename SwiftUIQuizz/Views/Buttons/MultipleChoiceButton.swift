@@ -27,6 +27,7 @@ extension Views {
                 action: {
                     isAnimating = true
                     Manager.SFX.playSound(sound: isCorrect ? .correct: .wrong)
+                    Manager.AnswerTracker.shared.addResult(answerStatus: isCorrect)
                 }
             ) {
                 HStack {
