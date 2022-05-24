@@ -53,7 +53,7 @@ extension Manager {
                     return "Right or Wrong"
                 }
             }
-            
+
             var rawValue: String {
                 switch self {
                 case .any:
