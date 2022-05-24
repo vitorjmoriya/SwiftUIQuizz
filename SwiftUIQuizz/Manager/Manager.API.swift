@@ -32,7 +32,7 @@ extension Manager {
             case all = "All"
             case generalKnowledge = "General Knowledge"
             case entertainmentBooks = "Entertainment: Books"
-            case entertainmentFilms = "Entertainment: Films"
+            case entertainmentFilms = "Entertainment: Film"
             case entertainmentMusic = "Entertainment: Music"
             case entertainmentMusicalsAndTheatres = "Entertainment: Musicals & Theatres"
             case entertainmentTelevision = "Entertainment: Television"
