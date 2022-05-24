@@ -18,10 +18,11 @@ extension DesignSystem {
 }
 
 // swiftlint:disable:all cyclomatic_complexity
-extension DesignSystem.Color {
 // swiftlint:disable:all function_body_length
-    static func byCategory(categoryName: Manager.API.CategoryNames) -> DesignSystem.Color {
-        switch categoryName {
+extension DesignSystem.Color {
+    static func byCategory(
+        category: Manager.API.QuestionCategory) -> DesignSystem.Color {
+        switch category {
         case .generalKnowledge:
                     return DesignSystem.Color(uiColor: .init(red: 221/255, green: 220/255, blue: 240/255))
         case .entertainmentBooks:
@@ -71,15 +72,16 @@ extension DesignSystem.Color {
         case .entertainmentCartoonAndAnimations:
                     return DesignSystem.Color(uiColor: .init(red: 80/255, green: 23/255, blue: 98/255))
         case .all:
-            return DesignSystem.Color(uiColor: .red)
+            return DesignSystem.Color(uiColor: .clear)
         }
     }
 
-    static func textColorByCategory(categoryName: Manager.API.CategoryNames) -> DesignSystem.Color {
-        switch categoryName {
+    static func textColorByCategory(category: Manager.API.QuestionCategory) -> DesignSystem.Color {
+        switch category {
         case .all:
             return DesignSystem.Color(uiColor: .red)
-        case .entertainmentAnimeAndMaga, .vehicles, .entertainmentCartoonAndAnimations, .history, .art, .entertainmentTelevision, .sports:
+        case .entertainmentAnimeAndMaga, .vehicles, .entertainmentCartoonAndAnimations,
+        .history, .art, .entertainmentTelevision, .sports:
             return DesignSystem.Color(uiColor: .white)
         default:
             return DesignSystem.Color(uiColor: .black)

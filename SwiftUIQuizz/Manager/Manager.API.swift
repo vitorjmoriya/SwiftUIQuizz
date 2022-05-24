@@ -28,80 +28,24 @@ extension Manager {
             case hard
         }
 
-        enum CategoryNames: String, CaseIterable {
-            case all = "All"
-            case generalKnowledge = "General Knowledge"
-            case entertainmentBooks = "Entertainment: Books"
-            case entertainmentFilms = "Entertainment: Film"
-            case entertainmentMusic = "Entertainment: Music"
-            case entertainmentMusicalsAndTheatres = "Entertainment: Musicals & Theatres"
-            case entertainmentTelevision = "Entertainment: Television"
-            case entertainmentVideoGames = "Entertainment: Video Games"
-            case entertainmentBoardGames = "Entertainment: Board Games"
-            case scienceAndNature = "Science & Nature"
-            case scienceComputers = "Science: Computers"
-            case scienceMathematics = "Science: Mathematics"
-            case mythology = "Mythology"
-            case sports = "Sports"
-            case geography = "Geography"
-            case history = "History"
-            case politics = "Politics"
-            case art = "Art"
-            case celebrities = "Celebrities"
-            case animals = "Animals"
-            case vehicles = "Vehicles"
-            case entertainmentComics = "Entertainment: Comics"
-            case scienceGadgets = "Science: Gadgets"
-            case entertainmentAnimeAndMaga = "Entertainment: Japanese Anime & Manga"
-            case entertainmentCartoonAndAnimations = "Entertainment: Cartoon & Animations"
-        }
-
         enum AnswerTypes: String, CaseIterable {
             case any = "Both"
             case multi = "multiple"
             case rightWrong = "boolean"
         }
 
-        private let categoryIDs: [CategoryNames: Int] = [
-            .generalKnowledge: 9,
-            .entertainmentBooks: 10,
-            .entertainmentFilms: 11,
-            .entertainmentMusic: 12,
-            .entertainmentMusicalsAndTheatres: 13,
-            .entertainmentTelevision: 14,
-            .entertainmentVideoGames: 15,
-            .entertainmentBoardGames: 16,
-            .scienceAndNature: 17,
-            .scienceComputers: 18,
-            .scienceMathematics: 19,
-            .mythology: 20,
-            .sports: 21,
-            .geography: 22,
-            .history: 23,
-            .politics: 24,
-            .art: 25,
-            .celebrities: 26,
-            .animals: 27,
-            .vehicles: 28,
-            .entertainmentComics: 29,
-            .scienceGadgets: 30,
-            .entertainmentAnimeAndMaga: 31,
-            .entertainmentCartoonAndAnimations: 32
-        ]
-
-        func queryBuilder(category: CategoryNames, difficulty: Difficulty, amount: Int = 10) throws -> URL {
+        func queryBuilder(category: QuestionCategory, difficulty: Difficulty, amount: Int = 10) throws -> URL {
             var components = URLComponents()
             components.scheme = "https"
             components.host = "opentdb.com"
             components.path = "/api.php"
 
             var queryItems: [URLQueryItem] = [
-                URLQueryItem(name: "amount", value: String(amount) ),
+                URLQueryItem(name: "amount", value: String(amount))
             ]
 
             if category != .all {
-                guard let catID = categoryIDs[category] else { throw QuestionError.invalidCategory }
-                queryItems.append(URLQueryItem(name: "category", value: String(catID)))
+                queryItems.append(URLQueryItem(name: "category", value: String(category.categoryId)))
             }
 
             if difficulty != .any {
@@ -113,7 +57,7 @@ extension Manager {
             return url
         }
 
-        mutating func fetchQuestions(category: CategoryNames,
+        mutating func fetchQuestions(category: QuestionCategory,
                                      difficulty: Difficulty,
                                      amount: Int = 10) async throws -> [Question] {
             let url = try queryBuilder(category: category, difficulty: difficulty, amount: amount)
@@ -127,10 +71,10 @@ extension Manager {
             return questions
         }
 
-        static func parseResponse(questions: [Manager.API.Question]) -> [Manager.API.Question] {
+        static func parseResponse(questions: [Manager.API.QuestionAPI]) -> [Question] {
             return questions.map { question in
-                return Manager.API.Question(
-                    category: question.category.html2String,
+                return Question(
+                    category: QuestionCategory.withLabel(question.category),
                     type: question.type,
                     difficulty: question.difficulty,
                     question: question.question.html2String,
@@ -145,18 +89,178 @@ extension Manager {
 }
 
 // swiftlint:disable:all identifier_name
+public struct Question {
+    let category: Manager.API.QuestionCategory
+    let type: String
+    let difficulty: String
+    let question: String
+    let correct_answer: String
+    let incorrect_answers: [String]
+}
+
+// swiftlint:disable:all identifier_name
 extension Manager.API {
     struct Response: Codable {
         let response_code: Int
-        let results: [Question]
+        let results: [QuestionAPI]
     }
 
-    struct Question: Codable {
+    struct QuestionAPI: Codable {
         let category: String
         let type: String
         let difficulty: String
         let question: String
         let correct_answer: String
         let incorrect_answers: [String]
+    }
+}
+
+extension Manager.API {
+    public enum QuestionCategory: CaseIterable {
+        case all
+        case generalKnowledge
+        case entertainmentBooks
+        case entertainmentFilms
+        case entertainmentMusic
+        case entertainmentMusicalsAndTheatres
+        case entertainmentTelevision
+        case entertainmentVideoGames
+        case entertainmentBoardGames
+        case scienceAndNature
+        case scienceComputers
+        case scienceMathematics
+        case mythology
+        case sports
+        case geography
+        case history
+        case politics
+        case art
+        case celebrities
+        case animals
+        case vehicles
+        case entertainmentComics
+        case scienceGadgets
+        case entertainmentAnimeAndMaga
+        case entertainmentCartoonAndAnimations
+
+        static func withLabel(_ label: String) -> QuestionCategory {
+            let caseResult = self.allCases.first {
+                $0.categoryName == label
+            }
+            guard let caseResult = caseResult else {
+                return .all
+            }
+            return caseResult
+        }
+
+        var categoryName: String {
+            switch self {
+            case .all:
+                return "All"
+            case .generalKnowledge:
+                return "General Knowledge"
+            case .entertainmentBooks:
+                return "Entertainment: Books"
+            case .entertainmentFilms:
+                return "Entertainment: Films"
+            case .entertainmentMusic:
+                return "Entertainment: Music"
+            case .entertainmentMusicalsAndTheatres:
+                return "Entertainment: Musicals & Theatres"
+            case .entertainmentTelevision:
+                return "Entertainment: Television"
+            case .entertainmentVideoGames:
+                return "Entertainment: Video Games"
+            case .entertainmentBoardGames:
+                return "Entertainment: Board Games"
+            case .scienceAndNature:
+                return "Science & Nature"
+            case .scienceComputers:
+                return "Science: Computers"
+            case .scienceMathematics:
+                return "Science: Mathematics"
+            case .mythology:
+                return "Mythology"
+            case .sports:
+                return "Sports"
+            case .geography:
+                return "Geography"
+            case .history:
+                return "History"
+            case .politics:
+                return "Politics"
+            case .art:
+                return "Art"
+            case .celebrities:
+                return "Celebrities"
+            case .animals:
+                return "Animals"
+            case .vehicles:
+                return "Vehicles"
+            case .entertainmentComics:
+                return "Entertainment: Comics"
+            case .scienceGadgets:
+                return "Science: Gadgets"
+            case .entertainmentAnimeAndMaga:
+                return "Entertainment: Japanese Anime & Manga"
+            case .entertainmentCartoonAndAnimations:
+                return "Entertainment: Cartoon & Animations"
+            }
+        }
+
+        var categoryId: Int {
+            switch self {
+            case .all:
+                return 0
+            case .generalKnowledge:
+                return 9
+            case .entertainmentBooks:
+                return 10
+            case .entertainmentFilms:
+                return 11
+            case .entertainmentMusic:
+                return 12
+            case .entertainmentMusicalsAndTheatres:
+                return 13
+            case .entertainmentTelevision:
+                return 14
+            case .entertainmentVideoGames:
+                return 15
+            case .entertainmentBoardGames:
+                return 16
+            case .scienceAndNature:
+                return 17
+            case .scienceComputers:
+                return 18
+            case .scienceMathematics:
+                return 19
+            case .mythology:
+                return 20
+            case .sports:
+                return 21
+            case .geography:
+                return 22
+            case .history:
+                return 23
+            case .politics:
+                return 24
+            case .art:
+                return 25
+            case .celebrities:
+                return 26
+            case .animals:
+                return 27
+            case .vehicles:
+                return 28
+            case .entertainmentComics:
+                return 29
+            case .scienceGadgets:
+                return 30
+            case .entertainmentAnimeAndMaga:
+                return 31
+            case .entertainmentCartoonAndAnimations:
+                return 32
+            }
+        }
     }
 }

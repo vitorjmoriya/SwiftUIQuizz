@@ -39,8 +39,8 @@ extension Views {
                             selection: $selectedCategoryIndex,
                             label: Text("Category")
                         ) {
-                            ForEach(0 ..< Manager.API.CategoryNames.allCases.count, id: \.self) {
-                                Text(Manager.API.CategoryNames.allCases[$0].rawValue)
+                            ForEach(0 ..< Manager.API.QuestionCategory.allCases.count, id: \.self) {
+                                Text(Manager.API.QuestionCategory.allCases[$0].categoryName)
                             }
                         }
 
@@ -59,7 +59,7 @@ extension Views {
                         .task {
                         do {
                             let questions = try await Manager.API.shared.fetchQuestions(
-                                category: Manager.API.CategoryNames.allCases[selectedCategoryIndex],
+                                category: Manager.API.QuestionCategory.allCases[selectedCategoryIndex],
                                 difficulty: Manager.API.Difficulty.allCases[selectedDifficultyIndex]
                             )
                             questionsViewModel.update(question: questions.first!)
