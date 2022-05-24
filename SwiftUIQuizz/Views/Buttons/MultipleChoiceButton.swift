@@ -35,16 +35,25 @@ extension Views {
                                 .lottieLoopMode(.playOnce)
                         }
                     }
-                    .frame(width: 30.0, height: 30.0)
+                    .frame(width: Constants.animationFrame, height: Constants.animationFrame)
                 }
                 .padding()
             } .background(
-                RoundedRectangle(cornerRadius: 13, style: .circular)
-                    .fill(Color.white .opacity(0.3))
+                RoundedRectangle(cornerRadius: Constants.rectangleCornerRadius, style: .circular)
+                    .fill(Color.white .opacity(Constants.opacity))
             )
-                .overlay(RoundedRectangle(cornerRadius: 13)
-                .stroke(Color.black, lineWidth: 1)
+                .overlay(RoundedRectangle(cornerRadius: Constants.rectangleCornerRadius)
+                .stroke(Color.black, lineWidth: Constants.strokeLineWidth)
             )
         }
+    }
+}
+
+extension Views.MultipleChoiceButton {
+    struct Constants {
+        static let animationFrame: CGFloat = 30
+        static let rectangleCornerRadius: CGFloat = 13
+        static let opacity: Double = 0.3
+        static let strokeLineWidth: CGFloat = 1
     }
 }
