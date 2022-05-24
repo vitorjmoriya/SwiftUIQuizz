@@ -78,11 +78,11 @@ extension Views {
                 case .any:
                     fatalError("Don't insert .any")
                 }
-                if currentQuestion < Manager.API.shared.questions.count - 1 {
+                if currentQuestion < Manager.API.shared.questions.count - 1 && self.isAnimating {
                     SwiftUI.Button(action: { currentQuestion += 1 }) {
                         Text("Next Question")
                     }
-                } else {
+                } else if currentQuestion >= Manager.API.shared.questions.count - 1 && self.isAnimating {
                     NavigationLink(destination: ConclusionView().navigationBarHidden(true)) {
                         Text("Finish quiz")
                     }

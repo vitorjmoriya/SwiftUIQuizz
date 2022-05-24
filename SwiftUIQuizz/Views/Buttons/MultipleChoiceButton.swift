@@ -43,8 +43,9 @@ extension Views {
                     .fill(Color.white .opacity(Constants.opacity))
             )
                 .overlay(RoundedRectangle(cornerRadius: Constants.rectangleCornerRadius)
-                .stroke(Color.black, lineWidth: Constants.strokeLineWidth)
+                    .stroke(Color.black, lineWidth: Constants.strokeLineWidth)
             )
+                .disabled(isAnimating)
         }
     }
 }

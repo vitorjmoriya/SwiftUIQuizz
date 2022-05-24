@@ -47,6 +47,7 @@ extension Views {
                 RoundedRectangle(cornerRadius: Constants.rectangleCornerRadius, style: .circular)
                     .strokeBorder(Color.black, lineWidth: Constants.strokeLineWidth)
             )
+            .disabled(isAnimating)
         }
     }
 }
