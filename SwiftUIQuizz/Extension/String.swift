@@ -5,7 +5,7 @@
 //  Created by Vitor Jundi Moriya on 10/05/22.
 //
 
-import Foundation   
+import Foundation
 
 extension String {
     func capitalizingFirstLetter() -> String {
