@@ -162,7 +162,7 @@ extension Manager.API {
             case .entertainmentBooks:
                 return "Entertainment: Books"
             case .entertainmentFilms:
-                return "Entertainment: Films"
+                return "Entertainment: Film"
             case .entertainmentMusic:
                 return "Entertainment: Music"
             case .entertainmentMusicalsAndTheatres:
