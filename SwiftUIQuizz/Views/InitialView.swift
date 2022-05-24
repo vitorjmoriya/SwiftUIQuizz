@@ -49,7 +49,7 @@ extension Views {
                             label: Text("Type")
                         ) {
                             ForEach(0 ..< Manager.API.AnswerTypes.allCases.count, id: \.self) {
-                                Text(Manager.API.AnswerTypes.allCases[$0].rawValue.capitalizingFirstLetter())
+                                Text(Manager.API.AnswerTypes.allCases[$0].answerTypeName)
                             }
                         }
                     }
@@ -60,7 +60,9 @@ extension Views {
                         do {
                             let questions = try await Manager.API.shared.fetchQuestions(
                                 category: Manager.API.QuestionCategory.allCases[selectedCategoryIndex],
-                                difficulty: Manager.API.Difficulty.allCases[selectedDifficultyIndex]
+                                difficulty: Manager.API.Difficulty.allCases[selectedDifficultyIndex],
+                                answerType: Manager.API.AnswerTypes.allCases[selectedTypeIndex],
+                                amount: viewModel.numberQuestions
                             )
                             questionsViewModel.update(question: questions.first!)
                         } catch {

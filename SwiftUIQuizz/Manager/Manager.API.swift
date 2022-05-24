@@ -28,13 +28,50 @@ extension Manager {
             case hard
         }
 
-        enum AnswerTypes: String, CaseIterable {
-            case any = "Both"
-            case multi = "multiple"
-            case rightWrong = "boolean"
+        enum AnswerTypes: CaseIterable {
+            case any
+            case multiple
+            case boolean
+
+            static func withLabel(_ label: String) -> AnswerTypes {
+                let caseResult = self.allCases.first {
+                    $0.rawValue == label
+                }
+                guard let caseResult = caseResult else {
+                    return .any
+                }
+                return caseResult
+            }
+
+            var answerTypeName: String {
+                switch self {
+                case .any:
+                    return "Any question type"
+                case .multiple:
+                    return "Multiple Choices"
+                case .boolean:
+                    return "Right or Wrong"
+                }
+            }
+            
+            var rawValue: String {
+                switch self {
+                case .any:
+                    return "any"
+                case .multiple:
+                    return "multiple"
+                case .boolean:
+                    return "boolean"
+                }
+            }
         }
 
-        func queryBuilder(category: QuestionCategory, difficulty: Difficulty, amount: Int = 10) throws -> URL {
+        func queryBuilder(
+            difficulty: Difficulty,
+            category: QuestionCategory,
+            answerType: AnswerTypes,
+            amount: Int = 10
+        ) throws -> URL {
             var components = URLComponents()
             components.scheme = "https"
             components.host = "opentdb.com"
@@ -44,12 +81,16 @@ extension Manager {
                 URLQueryItem(name: "amount", value: String(amount))
             ]
 
+            if difficulty != .any {
+                queryItems.append(URLQueryItem(name: "difficulty", value: difficulty.rawValue as String))
+            }
+
             if category != .all {
                 queryItems.append(URLQueryItem(name: "category", value: String(category.categoryId)))
             }
 
-            if difficulty != .any {
-                queryItems.append(URLQueryItem(name: "difficulty", value: difficulty.rawValue as String))
+            if answerType != .any {
+                queryItems.append(URLQueryItem(name: "type", value: answerType.rawValue))
             }
 
             components.queryItems = queryItems
@@ -57,10 +98,18 @@ extension Manager {
             return url
         }
 
-        mutating func fetchQuestions(category: QuestionCategory,
-                                     difficulty: Difficulty,
-                                     amount: Int = 10) async throws -> [Question] {
-            let url = try queryBuilder(category: category, difficulty: difficulty, amount: amount)
+        mutating func fetchQuestions(
+            category: QuestionCategory,
+            difficulty: Difficulty,
+            answerType: AnswerTypes,
+            amount: Int = 10
+        ) async throws -> [Question] {
+            let url = try queryBuilder(
+                difficulty: difficulty,
+                category: category,
+                answerType: answerType,
+                amount: amount
+            )
             let session = URLSession(configuration: .ephemeral)
             let (data, response) = try await(session.data(from: url))
             guard let response = response as? HTTPURLResponse else { throw QuestionError.badResponse }
@@ -75,7 +124,7 @@ extension Manager {
             return questions.map { question in
                 return Question(
                     category: QuestionCategory.withLabel(question.category),
-                    type: question.type,
+                    type: AnswerTypes.withLabel(question.type),
                     difficulty: question.difficulty,
                     question: question.question.html2String,
                     correct_answer: question.correct_answer.html2String,
@@ -91,7 +140,7 @@ extension Manager {
 // swiftlint:disable:all identifier_name
 public struct Question {
     let category: Manager.API.QuestionCategory
-    let type: String
+    let type: Manager.API.AnswerTypes
     let difficulty: String
     let question: String
     let correct_answer: String
