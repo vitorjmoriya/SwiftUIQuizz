@@ -20,9 +20,7 @@ extension Views {
         }
         var body: some View {
             ZStack {
-//                DesignSystem.Color.System.basicColor.color.uiColor.edgesIgnoringSafeArea(.all)
-                DesignSystem.Color.byCategory(categoryName: Manager.API.CategoryNames.init(rawValue: viewModel.title) ?? .animals)
-                    .uiColor.edgesIgnoringSafeArea(.all)
+                DesignSystem.Color.byCategory(category: viewModel.category).uiColor.edgesIgnoringSafeArea(.all)
                 if viewModel.answers.count == 0 {
                     renderBody(answerType: .multi, isAnimating: $isAnimating)
                         .padding()
@@ -89,7 +87,7 @@ extension Views {
                         Text("Finish quiz")
                     }
                 }
-            }.foregroundColor(DesignSystem.Color.textColorByCategory(categoryName: Manager.API.CategoryNames.init(rawValue: viewModel.title) ?? .sports).uiColor)
+            }.foregroundColor(DesignSystem.Color.textColorByCategory(category: viewModel.category).uiColor)
         }
     }
 }
@@ -97,6 +95,7 @@ extension Views {
 extension Views.QuestionView {
     class ViewModel: ObservableObject {
         let manager = Manager.API()
+        @Published var category: Manager.API.QuestionCategory = .all
         @Published var title: String = ""
         @Published var image: Image = .init(systemName: "exclamationmark.circle.fill")
         @Published var question: String = ""
@@ -113,9 +112,10 @@ extension Views.QuestionView {
         public func checkBooleanQuestion(answer: String, questionNumber: Int) -> Bool {
             return answer == Manager.API.shared.questions[questionNumber].correct_answer ? true : false
         }
-        public func update(question: Manager.API.Question) {
-            self.title = question.category
-            self.image = Image(question.category)
+
+        public func update(question: Question) {
+            self.title = question.category.categoryName
+            self.image = Image(question.category.categoryName)
             self.question = question.question
             self.answerType = question.type
             self.answers.removeAll()
@@ -123,6 +123,7 @@ extension Views.QuestionView {
             question.incorrect_answers.forEach {
                 self.answers.append($0)
             }
+            self.category = question.category
             self.answers.shuffle()
         }
     }
