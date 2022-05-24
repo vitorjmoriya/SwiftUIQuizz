@@ -22,13 +22,12 @@ extension Views {
             ZStack {
                 DesignSystem.Color.byCategory(category: viewModel.category).uiColor.edgesIgnoringSafeArea(.all)
                 if viewModel.answers.count == 0 {
-                    renderBody(answerType: .multi, isAnimating: $isAnimating)
+                    renderBody(answerType: .multiple, isAnimating: $isAnimating)
                         .padding()
                         .redacted(reason: .placeholder)
                 } else {
                     renderBody(
-                        answerType: viewModel.answerType ==
-                                        Manager.API.AnswerTypes.multi.rawValue ? .multi : .rightWrong,
+                        answerType: viewModel.answerType,
                         isAnimating: $isAnimating
                     )
                     .padding()
@@ -43,9 +42,10 @@ extension Views {
             VStack {
                 Text(viewModel.title)
                 viewModel.image
+                    .frame(width: 100, height: 100)
                 Text(viewModel.question)
                 switch answerType {
-                case .multi:
+                case .multiple:
                     ForEach(0 ..< 4) { index in
                         MultipleChoiceButton(
                             isAnimating: $isAnimating,
@@ -56,7 +56,7 @@ extension Views {
                             buttonText: viewModel.answers.count == 0 ? "" : viewModel.answers[index]
                         )
                     }
-                case .rightWrong:
+                case .boolean:
                         HStack {
                             BooleanButton(isAnimating: $isAnimating,
                                 isCorrect: viewModel.checkBooleanQuestion(
@@ -85,7 +85,7 @@ extension Views {
                 } else if currentQuestion >= Manager.API.shared.questions.count - 1 && self.isAnimating {
                     NavigationLink(destination: ConclusionView().navigationBarHidden(true)) {
                         Text("Finish quiz")
-                    }
+                    }.padding(.bottom, 20)
                 }
             }.foregroundColor(DesignSystem.Color.textColorByCategory(category: viewModel.category).uiColor)
         }
@@ -97,9 +97,9 @@ extension Views.QuestionView {
         let manager = Manager.API()
         @Published var category: Manager.API.QuestionCategory = .all
         @Published var title: String = ""
-        @Published var image: Image = .init(systemName: "exclamationmark.circle.fill")
+        @Published var image: Image = .init("Logo")
         @Published var question: String = ""
-        @Published var answerType: String = ""
+        @Published var answerType: Manager.API.AnswerTypes = .any
         @Published var answers: [String] = []
 
         public func checkIfRightAnswer(questionNumber: Int, index: Int) -> Bool {
