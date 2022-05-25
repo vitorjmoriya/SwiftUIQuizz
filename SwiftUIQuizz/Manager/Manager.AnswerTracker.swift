@@ -33,7 +33,6 @@ extension Manager {
             } else {
                 wrongAnswers += 1
             }
-            //print(questionAmount,correctAnswers,wrongAnswers)
         }
     }
 }
