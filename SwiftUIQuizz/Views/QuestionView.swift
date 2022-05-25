@@ -23,14 +23,14 @@ extension Views {
                 DesignSystem.Color.byCategory(category: viewModel.category).uiColor.edgesIgnoringSafeArea(.all)
                 if viewModel.answers.count == 0 {
                     renderBody(answerType: .multiple, isAnimating: $isAnimating)
-                        .padding()
+                        .padding(.horizontal, DesignSystem.Padding.macroPadding)
                         .redacted(reason: .placeholder)
                 } else {
                     renderBody(
                         answerType: viewModel.answerType,
                         isAnimating: $isAnimating
                     )
-                    .padding()
+                    .padding(.horizontal, DesignSystem.Padding.macroPadding)
                 }
             }
         }
@@ -39,11 +39,14 @@ extension Views {
             answerType: Manager.API.AnswerTypes,
             isAnimating: Binding<Bool>
         ) -> some View {
-            VStack(spacing: Constants.microPadding) {
+            VStack(spacing: DesignSystem.Padding.microPadding) {
                 viewModel.image
                 Text(viewModel.title)
-                    .padding(.bottom, Constants.macroPadding)
+                    .bold()
+                    .padding(.bottom, DesignSystem.Padding.macroPadding)
                 Text(viewModel.question)
+                    .bold()
+                    .padding(.bottom, DesignSystem.Padding.macroPadding)
                 switch answerType {
                 case .multiple:
                     ForEach(0 ..< 4) { index in
@@ -57,24 +60,23 @@ extension Views {
                         )
                     }
                 case .boolean:
-                        HStack {
-                            BooleanButton(isAnimating: $isAnimating,
-                                isCorrect: viewModel.checkBooleanQuestion(
-                                    answer: "True",
-                                    questionNumber: currentQuestion
-                                ),
-                                buttonText: viewModel.answers.count == 0 ? "" : "True"
-                            )
-                            Spacer()
-
-                            BooleanButton(isAnimating: $isAnimating,
-                                isCorrect: viewModel.checkBooleanQuestion(
-                                  answer: "False",
-                                  questionNumber: currentQuestion
-                                ),
-                                buttonText: viewModel.answers.count == 0 ? "" : "False"
-                            )
-                        }
+                    HStack {
+                        BooleanButton(isAnimating: $isAnimating,
+                            isCorrect: viewModel.checkBooleanQuestion(
+                                answer: "True",
+                                questionNumber: currentQuestion
+                            ),
+                            buttonText: viewModel.answers.count == 0 ? "" : "True"
+                        )
+                        Spacer()
+                        BooleanButton(isAnimating: $isAnimating,
+                            isCorrect: viewModel.checkBooleanQuestion(
+                              answer: "False",
+                              questionNumber: currentQuestion
+                            ),
+                            buttonText: viewModel.answers.count == 0 ? "" : "False"
+                        )
+                    }
                 case .any:
                     fatalError("Don't insert .any")
                 }
@@ -89,10 +91,10 @@ extension Views {
                         }
                     ) {
                         Text("Finish quiz")
-                    }.padding(.bottom, 20)
+                    }
                 }
             }.foregroundColor(DesignSystem.Color.textColorByCategory(category: viewModel.category).uiColor)
-                .padding(Constants.microPadding)
+                .padding(DesignSystem.Padding.microPadding)
         }
     }
 }
@@ -132,11 +134,6 @@ extension Views.QuestionView {
             self.answers.shuffle()
         }
     }
-}
-
-struct Constants {
-    static let macroPadding: Double = 32
-    static let microPadding: Double = 6
 }
 
 #if DEBUG

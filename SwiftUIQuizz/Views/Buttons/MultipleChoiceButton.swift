@@ -49,6 +49,7 @@ extension Views {
                 .overlay(RoundedRectangle(cornerRadius: Constants.rectangleCornerRadius)
                     .stroke(Color.black, lineWidth: Constants.strokeLineWidth)
             )
+                .padding(.bottom, DesignSystem.Padding.padding)
                 .disabled(isAnimating)
         }
     }
