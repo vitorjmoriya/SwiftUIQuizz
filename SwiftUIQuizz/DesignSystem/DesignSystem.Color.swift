@@ -81,7 +81,8 @@ extension DesignSystem.Color {
         case .all:
             return DesignSystem.Color(uiColor: .red)
         case .entertainmentAnimeAndMaga, .vehicles, .entertainmentCartoonAndAnimations,
-        .history, .art, .entertainmentTelevision, .sports:
+                .history, .art, .entertainmentTelevision, .sports, .entertainmentBooks,
+                .scienceMathematics, .scienceGadgets:
             return DesignSystem.Color(uiColor: .white)
         default:
             return DesignSystem.Color(uiColor: .black)
