@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1830AF88283E4A5800D4EA1A /* Manager.SFX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1830AF87283E4A5800D4EA1A /* Manager.SFX.swift */; };
+		1830AF8D283E539E00D4EA1A /* finished.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1830AF8A283E539D00D4EA1A /* finished.wav */; };
+		1830AF8E283E539E00D4EA1A /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1830AF8B283E539D00D4EA1A /* wrong.wav */; };
+		1830AF8F283E539E00D4EA1A /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1830AF8C283E539E00D4EA1A /* correct.wav */; };
 		185BB81228351FA900BB689A /* BooleanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185BB81128351FA900BB689A /* BooleanButton.swift */; };
 		185BB8152835202700BB689A /* wrong.json in Resources */ = {isa = PBXBuildFile; fileRef = 185BB8132835202700BB689A /* wrong.json */; };
 		185BB8162835202700BB689A /* correct.json in Resources */ = {isa = PBXBuildFile; fileRef = 185BB8142835202700BB689A /* correct.json */; };
@@ -33,6 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1830AF87283E4A5800D4EA1A /* Manager.SFX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.SFX.swift; sourceTree = "<group>"; };
+		1830AF8A283E539D00D4EA1A /* finished.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = finished.wav; sourceTree = "<group>"; };
+		1830AF8B283E539D00D4EA1A /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
+		1830AF8C283E539E00D4EA1A /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
 		185BB81128351FA900BB689A /* BooleanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanButton.swift; sourceTree = "<group>"; };
 		185BB8132835202700BB689A /* wrong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wrong.json; sourceTree = "<group>"; };
 		185BB8142835202700BB689A /* correct.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = correct.json; sourceTree = "<group>"; };
@@ -70,6 +78,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1830AF89283E537700D4EA1A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				1830AF8C283E539E00D4EA1A /* correct.wav */,
+				1830AF8A283E539D00D4EA1A /* finished.wav */,
+				1830AF8B283E539D00D4EA1A /* wrong.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		185BB80F28351F8800BB689A /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +100,7 @@
 		23A73CFF2836834100C611D4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1830AF89283E537700D4EA1A /* Sounds */,
 				23A73D002836834F00C611D4 /* Fonts */,
 			);
 			path = Resources;
@@ -110,6 +129,7 @@
 				5F3AC734282408030041CBBC /* Manager.swift */,
 				5F3AC736282408250041CBBC /* Manager.API.swift */,
 				3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */,
+				1830AF87283E4A5800D4EA1A /* Manager.SFX.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -254,7 +274,10 @@
 			files = (
 				5FE9134F2822A77000C0CDE0 /* Preview Assets.xcassets in Resources */,
 				23A73D02283686C700C611D4 /* Quicksand.ttf in Resources */,
+				1830AF8E283E539E00D4EA1A /* wrong.wav in Resources */,
+				1830AF8D283E539E00D4EA1A /* finished.wav in Resources */,
 				5FE9134C2822A77000C0CDE0 /* Assets.xcassets in Resources */,
+				1830AF8F283E539E00D4EA1A /* correct.wav in Resources */,
 				185BB8162835202700BB689A /* correct.json in Resources */,
 				5FDC4370282937FD00A4F011 /* wave.json in Resources */,
 				185BB8152835202700BB689A /* wrong.json in Resources */,
@@ -299,6 +322,7 @@
 				5FDC437428294C6600A4F011 /* InitialView.swift in Sources */,
 				5FFA8587282A886A008F47A5 /* String.swift in Sources */,
 				5F3AC735282408030041CBBC /* Manager.swift in Sources */,
+				1830AF88283E4A5800D4EA1A /* Manager.SFX.swift in Sources */,
 				5F3A266A282BDF2C00E857CC /* ProfileView.swift in Sources */,
 				18DF400E282A8402006B7254 /* MultipleChoiceButton.swift in Sources */,
 				5F0B738E283BAD6E008EE6DC /* DesignSystem.Color.swift in Sources */,
