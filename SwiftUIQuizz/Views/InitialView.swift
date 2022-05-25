@@ -73,8 +73,9 @@ extension Views {
                         Text("I wanna play a game")
                     }
                 }
-            }.navigationViewStyle(StackNavigationViewStyle())
-                .navigationBarHidden(true)
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarHidden(true)
         }
     }
 }
