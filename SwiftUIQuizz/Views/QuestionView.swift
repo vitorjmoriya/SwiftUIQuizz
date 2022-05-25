@@ -39,10 +39,10 @@ extension Views {
             answerType: Manager.API.AnswerTypes,
             isAnimating: Binding<Bool>
         ) -> some View {
-            VStack {
-                Text(viewModel.title)
+            VStack(spacing: Constants.microPadding) {
                 viewModel.image
-                    .frame(width: 100, height: 100)
+                Text(viewModel.title)
+                    .padding(.bottom, Constants.macroPadding)
                 Text(viewModel.question)
                 switch answerType {
                 case .multiple:
@@ -92,6 +92,7 @@ extension Views {
                     }.padding(.bottom, 20)
                 }
             }.foregroundColor(DesignSystem.Color.textColorByCategory(category: viewModel.category).uiColor)
+                .padding(Constants.microPadding)
         }
     }
 }
@@ -131,6 +132,11 @@ extension Views.QuestionView {
             self.answers.shuffle()
         }
     }
+}
+
+struct Constants {
+    static let macroPadding: Double = 32
+    static let microPadding: Double = 6
 }
 
 #if DEBUG
