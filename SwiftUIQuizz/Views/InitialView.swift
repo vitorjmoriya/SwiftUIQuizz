@@ -81,7 +81,17 @@ extension Views {
 
 extension Views.InitialView {
     class ViewModel: ObservableObject {
-        @Published var numberQuestions: Int = 0
+        @Published var numberQuestions: Int = 5 {
+            didSet {
+                if numberQuestions == 0 {
+                    numberQuestions = 1
+                }
+
+                if numberQuestions == 51 {
+                    numberQuestions = 50
+                }
+            }
+        }
     }
 }
 

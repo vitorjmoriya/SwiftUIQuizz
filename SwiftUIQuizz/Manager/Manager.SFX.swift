@@ -16,6 +16,7 @@ extension Manager {
             if let url = Bundle.main.url(forResource: sound.soundFile, withExtension: "wav") {
                 do {
                     shared.audioPlayer = try AVAudioPlayer(contentsOf: url)
+                    shared.audioPlayer.volume = sound.volume
                     shared.audioPlayer.play()
                 } catch {
                     print(error)
@@ -27,6 +28,7 @@ extension Manager {
             case correct
             case wrong
             case finished
+
             var soundFile: String {
                 switch self {
                 case .correct:
@@ -35,6 +37,17 @@ extension Manager {
                     return "wrong"
                 case .finished:
                     return "finished"
+                }
+            }
+
+            var volume: Float {
+                switch self {
+                case .correct:
+                    return 1
+                case .wrong:
+                    return 1
+                case .finished:
+                    return 0.6
                 }
             }
         }
