@@ -120,7 +120,7 @@ extension Views.QuestionView {
             return answer == Manager.API.shared.questions[questionNumber].correct_answer ? true : false
         }
 
-        public func update(question: Question) {
+        public func update(question: Question, canShuffle: Bool = true) {
             self.title = question.category.categoryName
             self.image = Image(question.category.categoryName)
             self.question = question.question
@@ -131,7 +131,9 @@ extension Views.QuestionView {
                 self.answers.append($0)
             }
             self.category = question.category
-            self.answers.shuffle()
+            if canShuffle {
+                self.answers.shuffle()
+            }
         }
     }
 }

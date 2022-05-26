@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5FEE3B5F283FA86F008EE47C"
+               BuildableName = "SwiftUIQuizzSnapshotTests.xctest"
+               BlueprintName = "SwiftUIQuizzSnapshotTests"
+               ReferencedContainer = "container:SwiftUIQuizz.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
