@@ -75,9 +75,9 @@ extension Views.ConclusionView {
     }
 
     class ViewModel: ObservableObject {
-        @Published var correctAnswers: Int = Manager.AnswerTracker.shared.correctAnswers
-        @Published var wrongAnswers: Int = Manager.AnswerTracker.shared.wrongAnswers
-        @Published var totalQuestions: Int = Manager.AnswerTracker.shared.questionAmount
+        @Published var correctAnswers: Int = Manager.SessionManager.shared.correctAnswers
+        @Published var wrongAnswers: Int = Manager.SessionManager.shared.wrongAnswers
+        @Published var totalQuestions: Int = Manager.SessionManager.shared.questionAmount
 
         func answerRate() -> Int {
             var rate: Double

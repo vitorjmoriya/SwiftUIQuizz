@@ -13,7 +13,7 @@ extension Manager {
         private static let fileName = "stash"
         private static let limit = 5000
 
-        private var questionDict: [String:Bool]
+        private var questionDict: [String: Bool]
         private var questionArray: [String]
 
         private static func loadFromStorage() -> QuestionStash {
@@ -29,7 +29,7 @@ extension Manager {
             questionArray = []
         }
 
-        private func saveToStorage(){
+        private func saveToStorage() {
             do {
                 try SaveSystem.saveObject(object: self, fileName: QuestionStash.fileName)
             } catch {

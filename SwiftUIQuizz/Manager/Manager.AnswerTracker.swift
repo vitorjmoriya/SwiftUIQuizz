@@ -21,7 +21,7 @@ extension Manager {
             self.wrongAnswers = 0
         }
 
-        func startQuiz(questionAmount: Int = 0) {
+        func resetTracker(questionAmount: Int = 0) {
             self.questionAmount = questionAmount
             self.correctAnswers = 0
             self.wrongAnswers = 0
