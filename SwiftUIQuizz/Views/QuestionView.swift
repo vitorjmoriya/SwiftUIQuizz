@@ -85,7 +85,7 @@ extension Views {
                         Text("Next Question")
                     }
                 } else if currentQuestion >= Manager.API.shared.questions.count - 1 && self.isAnimating {
-                    NavigationLink(destination: ConclusionView().navigationBarHidden(true)
+                    NavigationLink(destination: ConclusionView(viewModel: .init()).navigationBarHidden(true)
                         .onAppear {
                             Manager.SFX.playSound(sound: .finished)
                         }

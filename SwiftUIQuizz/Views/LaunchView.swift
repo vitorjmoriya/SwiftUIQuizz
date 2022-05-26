@@ -25,7 +25,7 @@ extension Views {
                             .foregroundColor(DesignSystem.Color.System.logoFontColor.color.uiColor)
                     }
                     .onAppear {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                             withAnimation {
                             self.isLoading = false
                             }
