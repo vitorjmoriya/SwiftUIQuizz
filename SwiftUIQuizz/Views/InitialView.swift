@@ -58,14 +58,15 @@ extension Views {
                         .navigationBarHidden(true)
                         .task {
                         do {
-                            Manager.AnswerTracker.shared.startQuiz(questionAmount: viewModel.numberQuestions)
-                            let questions = try await Manager.API.shared.fetchQuestions(
+                            let success = try await Manager.SessionManager.shared.startSession(
                                 category: Manager.API.QuestionCategory.allCases[selectedCategoryIndex],
                                 difficulty: Manager.API.Difficulty.allCases[selectedDifficultyIndex],
                                 answerType: Manager.API.AnswerTypes.allCases[selectedTypeIndex],
                                 amount: viewModel.numberQuestions
                             )
-                            questionsViewModel.update(question: questions.first!)
+                            if success {
+                                try questionsViewModel.update(question: Manager.SessionManager.shared.currentQuestion())
+                            }
                         } catch {
                             print(error)
                         }

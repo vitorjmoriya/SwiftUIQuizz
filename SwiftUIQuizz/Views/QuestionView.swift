@@ -12,12 +12,7 @@ extension Views {
     struct QuestionView: View {
         @ObservedObject var viewModel: ViewModel
         @State var isAnimating: Bool = false
-        @State var currentQuestion: Int = 0 {
-            didSet {
-                viewModel.update(question: Manager.API.shared.questions[currentQuestion])
-                isAnimating = false
-            }
-        }
+
         var body: some View {
             ZStack {
                 DesignSystem.Color.byCategory(category: viewModel.category).uiColor.edgesIgnoringSafeArea(.all)
@@ -53,7 +48,6 @@ extension Views {
                         MultipleChoiceButton(
                             isAnimating: $isAnimating,
                             isCorrect: viewModel.checkIfRightAnswer(
-                                questionNumber: currentQuestion,
                                 index: index
                             ),
                             buttonText: viewModel.answers.count == 0 ? "" : viewModel.answers[index]
@@ -63,16 +57,14 @@ extension Views {
                     HStack {
                         BooleanButton(isAnimating: $isAnimating,
                             isCorrect: viewModel.checkBooleanQuestion(
-                                answer: "True",
-                                questionNumber: currentQuestion
+                                answer: "True"
                             ),
                             buttonText: viewModel.answers.count == 0 ? "" : "True"
                         )
                         Spacer()
                         BooleanButton(isAnimating: $isAnimating,
                             isCorrect: viewModel.checkBooleanQuestion(
-                              answer: "False",
-                              questionNumber: currentQuestion
+                              answer: "False"
                             ),
                             buttonText: viewModel.answers.count == 0 ? "" : "False"
                         )
@@ -80,12 +72,15 @@ extension Views {
                 case .any:
                     fatalError("Don't insert .any")
                 }
-                if currentQuestion < Manager.API.shared.questions.count - 1 && self.isAnimating {
-                    SwiftUI.Button(action: { currentQuestion += 1 }) {
+                if !Manager.SessionManager.shared.sessionEnded() && self.isAnimating {
+                    SwiftUI.Button(action: {
+                        viewModel.fetchQuestion()
+                        self.isAnimating = false
+                    }) {
                         Text("Next Question")
                     }
-                } else if currentQuestion >= Manager.API.shared.questions.count - 1 && self.isAnimating {
-                    NavigationLink(destination: ConclusionView(viewModel: .init()).navigationBarHidden(true)
+                } else if Manager.SessionManager.shared.sessionEnded() && self.isAnimating {
+                        NavigationLink(destination: ConclusionView(viewModel: .init()).navigationBarHidden(true)
                         .onAppear {
                             Manager.SFX.playSound(sound: .finished)
                         }
@@ -108,19 +103,36 @@ extension Views.QuestionView {
         @Published var question: String = ""
         @Published var answerType: Manager.API.AnswerTypes = .any
         @Published var answers: [String] = []
+        @Published var questionObj: Question = Question(category: .all,
+                                                        type: .any,
+                                                        difficulty: "error",
+                                                        question: "error",
+                                                        correct_answer: "error",
+                                                        incorrect_answers: ["", "", ""])
 
-        public func checkIfRightAnswer(questionNumber: Int, index: Int) -> Bool {
+        public func checkIfRightAnswer(index: Int) -> Bool {
             if answers.count == 0 {
                 return false
             }
-            return answers[index] == Manager.API.shared.questions[questionNumber].correct_answer
+            // print(questionObj.correct_answer, answers)
+            return answers[index] == questionObj.correct_answer
         }
 
-        public func checkBooleanQuestion(answer: String, questionNumber: Int) -> Bool {
-            return answer == Manager.API.shared.questions[questionNumber].correct_answer ? true : false
+        public func checkBooleanQuestion(answer: String) -> Bool {
+            // print(answers)
+            // print(questionObj.correct_answer, answers)
+            return answer == questionObj.correct_answer ? true : false
+        }
+
+        public func fetchQuestion() {
+            do {
+                try questionObj = Manager.SessionManager.shared.currentQuestion()
+                update(question: questionObj)
+            } catch { print(error) }
         }
 
         public func update(question: Question) {
+            self.questionObj = question
             self.title = question.category.categoryName
             self.image = Image(question.category.categoryName)
             self.question = question.question

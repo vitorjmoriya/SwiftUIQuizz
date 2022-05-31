@@ -16,7 +16,8 @@
 		185BB8162835202700BB689A /* correct.json in Resources */ = {isa = PBXBuildFile; fileRef = 185BB8142835202700BB689A /* correct.json */; };
 		18DF400E282A8402006B7254 /* MultipleChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DF400D282A8402006B7254 /* MultipleChoiceButton.swift */; };
 		23A73D02283686C700C611D4 /* Quicksand.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23A73D01283686C700C611D4 /* Quicksand.ttf */; };
-		3D12614C283D237A0079E14B /* Manager.AnswerTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12614B283D237A0079E14B /* Manager.AnswerTracker.swift */; };
+		3DFB3603283FA6560045D062 /* Manager.QuestionStash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB3602283FA6560045D062 /* Manager.QuestionStash.swift */; };
+		3DFB3605283FB4580045D062 /* Manager.SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB3604283FB4580045D062 /* Manager.SessionManager.swift */; };
 		3DFD23EE28295C180074AB54 /* Manager.SaveSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */; };
 		5F0B738C283BACCE008EE6DC /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B738B283BACCE008EE6DC /* DesignSystem.swift */; };
 		5F0B738E283BAD6E008EE6DC /* DesignSystem.Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0B738D283BAD6E008EE6DC /* DesignSystem.Color.swift */; };
@@ -48,7 +49,8 @@
 		185BB8142835202700BB689A /* correct.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = correct.json; sourceTree = "<group>"; };
 		18DF400D282A8402006B7254 /* MultipleChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleChoiceButton.swift; sourceTree = "<group>"; };
 		23A73D01283686C700C611D4 /* Quicksand.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Quicksand.ttf; sourceTree = "<group>"; };
-		3D12614B283D237A0079E14B /* Manager.AnswerTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.AnswerTracker.swift; sourceTree = "<group>"; };
+		3DFB3602283FA6560045D062 /* Manager.QuestionStash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.QuestionStash.swift; sourceTree = "<group>"; };
+		3DFB3604283FB4580045D062 /* Manager.SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.SessionManager.swift; sourceTree = "<group>"; };
 		3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.SaveSystem.swift; sourceTree = "<group>"; };
 		5F0B738B283BACCE008EE6DC /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		5F0B738D283BAD6E008EE6DC /* DesignSystem.Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.Color.swift; sourceTree = "<group>"; };
@@ -135,7 +137,8 @@
 				5F3AC736282408250041CBBC /* Manager.API.swift */,
 				3DFD23ED28295C180074AB54 /* Manager.SaveSystem.swift */,
 				1830AF87283E4A5800D4EA1A /* Manager.SFX.swift */,
-				3D12614B283D237A0079E14B /* Manager.AnswerTracker.swift */,
+				3DFB3602283FA6560045D062 /* Manager.QuestionStash.swift */,
+				3DFB3604283FB4580045D062 /* Manager.SessionManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			files = (
 				5F3AC737282408250041CBBC /* Manager.API.swift in Sources */,
 				5FDC436D2829371100A4F011 /* LaunchView.swift in Sources */,
+				3DFB3603283FA6560045D062 /* Manager.QuestionStash.swift in Sources */,
 				5FE9134A2822A76E00C0CDE0 /* QuestionView.swift in Sources */,
 				3DFD23EE28295C180074AB54 /* Manager.SaveSystem.swift in Sources */,
 				5F0B738C283BACCE008EE6DC /* DesignSystem.swift in Sources */,
@@ -334,8 +338,8 @@
 				18DF400E282A8402006B7254 /* MultipleChoiceButton.swift in Sources */,
 				5F0B738E283BAD6E008EE6DC /* DesignSystem.Color.swift in Sources */,
 				5F9C58ED2833D0B100070A37 /* ConclusionView.swift in Sources */,
+				3DFB3605283FB4580045D062 /* Manager.SessionManager.swift in Sources */,
 				5F0B7390283BC476008EE6DC /* Data.swift in Sources */,
-				3D12614C283D237A0079E14B /* Manager.AnswerTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

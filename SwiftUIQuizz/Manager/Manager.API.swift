@@ -98,7 +98,7 @@ extension Manager {
             return url
         }
 
-        mutating func fetchQuestions(
+        mutating private func simpleFetch(
             category: QuestionCategory,
             difficulty: Difficulty,
             answerType: AnswerTypes,
@@ -118,6 +118,34 @@ extension Manager {
             let questions = Manager.API.parseResponse(questions: result.results)
             self.questions = questions
             return questions
+        }
+
+        mutating func fetchQuestions(
+            category: QuestionCategory,
+            difficulty: Difficulty,
+            answerType: AnswerTypes,
+            amount: Int = 10
+        ) async throws -> [Question] {
+            do {
+                var returnArray: [Question] = []
+                while returnArray.count < amount {
+                    let questionArr = try await simpleFetch(category: category,
+                                                            difficulty: difficulty,
+                                                            answerType: answerType,
+                                                            amount: amount*2)
+                    for question in questionArr {
+                        if !QuestionStash.shared.isRepeatedQuestion(question: question.question) {
+                            returnArray.append(question)
+                        }
+                        if returnArray.count >= amount {
+                            break
+                        }
+                    }
+                }
+                return returnArray
+            } catch {
+                throw error
+            }
         }
 
         static func parseResponse(questions: [Manager.API.QuestionAPI]) -> [Question] {
